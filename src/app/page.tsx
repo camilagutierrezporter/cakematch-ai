@@ -3,31 +3,31 @@ import Link from "next/link";
 export default function Home() {
   return (
     <main>
-      <nav className="site-nav" aria-label="Navegación principal">
+      <nav className="site-nav" aria-label="Main navigation">
         <Link className="brand" href="/">
           CakeMatch <span>AI</span>
         </Link>
         <div className="nav-links">
-          <Link href="#inicio">Inicio</Link>
-          <Link href="#como-funciona">Cómo funciona</Link>
-          <Link href="/docs">Documentación</Link>
+          <Link href="#inicio">Home</Link>
+          <Link href="#como-funciona">How It Works</Link>
+          <Link href="/docs">Documentation</Link>
         </div>
       </nav>
 
       <section className="hero" id="inicio">
         <div className="hero-copy">
-          <p className="eyebrow">Diseña momentos inolvidables</p>
-          <h1>Tu pastel ideal, en minutos</h1>
+          <p className="eyebrow">Design unforgettable moments</p>
+          <h1>Your perfect cake, in minutes</h1>
           <p className="hero-description">
-            CakeMatch AI te ayudará a encontrar el tamaño, sabor y diseño
-            perfecto para cada celebración.
+            CakeMatch AI will help you find the perfect size, flavor, and design
+            for every celebration.
           </p>
           <div className="hero-actions">
             <button className="primary-button" type="button" disabled>
-              Diseñar mi pastel
+              Design My Cake
             </button>
             <Link className="text-link" href="#como-funciona">
-              Ver cómo funciona <span aria-hidden="true">↗</span>
+              See How It Works <span aria-hidden="true">↗</span>
             </Link>
           </div>
         </div>
@@ -48,15 +48,15 @@ export default function Home() {
 
       <section className="features" id="como-funciona">
         <div className="section-heading">
-          <p className="eyebrow">Muy pronto</p>
-          <h2>Todo lo que necesitas para celebrar a tu manera.</h2>
+          <p className="eyebrow">Coming Soon</p>
+          <h2>Everything you need to celebrate your way.</h2>
         </div>
         <div className="feature-grid">
           {[
-            ["01", "Recomendaciones personalizadas"],
-            ["02", "Diseños para cada ocasión"],
-            ["03", "Presupuestos estimados"],
-            ["04", "Guarda tus favoritos"],
+            ["01", "Personalized Recommendations"],
+            ["02", "Designs for Every Occasion"],
+            ["03", "Estimated Budgets"],
+            ["04", "Save Your Favorites"],
           ].map(([number, title]) => (
             <article className="feature-card" key={number}>
               <span className="feature-number">{number}</span>
@@ -68,7 +68,7 @@ export default function Home() {
       </section>
 
       <footer className="site-footer">
-        <p>CakeMatch AI — Proyecto creado por Camila Gutiérrez</p>
+        <p>CakeMatch AI — Project created by Camila Gutiérrez</p>
         <p>AI-Native Builder 2026</p>
       </footer>
     </main>
