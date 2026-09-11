@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="860" viewBox="0 0 1200 860" role="img" aria-labelledby="title description">
+  <title id="title">CakeMatch AI Week 1 Core wireframe</title>
+  <desc id="description">A black, white, and pink wireframe showing the CakeMatch AI header, input form, cake and cupcakes choices, demo recommendation, save button, and saved recommendations.</desc>
+  <rect width="1200" height="860" fill="#fffaf6"/>
+  <g fill="none" stroke="#39252a" stroke-width="2">
+    <path d="M70 112H1130" stroke="#e3ccc9"/>
+    <rect x="70" y="154" width="1060" height="86" rx="2" stroke="#e3ccc9"/>
+    <rect x="70" y="274" width="500" height="430" rx="2"/>
+    <rect x="610" y="274" width="520" height="430" rx="2"/>
+    <rect x="70" y="744" width="1060" height="60" rx="2" stroke="#e3ccc9"/>
+    <rect x="100" y="345" width="440" height="42" rx="2" stroke="#e3ccc9"/>
+    <rect x="100" y="438" width="210" height="52" rx="2" stroke="#823f4d"/>
+    <rect x="330" y="438" width="210" height="52" rx="2" stroke="#e3ccc9"/>
+    <circle cx="123" cy="464" r="8" stroke="#823f4d"/>
+    <circle cx="353" cy="464" r="8" stroke="#e3ccc9"/>
+    <rect x="100" y="535" width="210" height="42" rx="2" stroke="#e3ccc9"/>
+    <rect x="330" y="535" width="210" height="42" rx="2" stroke="#e3ccc9"/>
+    <rect x="100" y="614" width="210" height="42" rx="2" stroke="#e3ccc9"/>
+    <rect x="330" y="614" width="210" height="42" rx="2" stroke="#e3ccc9"/>
+    <path d="M650 378H1090M650 438H1090M650 498H1090M650 558H1090" stroke="#e3ccc9"/>
+    <rect x="650" y="614" width="440" height="48" rx="2" fill="#f5dfda" stroke="#823f4d"/>
+    <path d="M100 774H1100" stroke="#e3ccc9"/>
+  </g>
+  <g fill="#39252a" font-family="Arial, Helvetica, sans-serif">
+    <text x="70" y="78" font-size="28" font-weight="700">CakeMatch <tspan fill="#823f4d">AI</tspan></text>
+    <text x="880" y="78" font-size="14">Home   How It Works   Core   Documentation</text>
+    <text x="70" y="190" font-size="16" fill="#823f4d" letter-spacing="2">GENERATIVE CORE · WEEK 1</text>
+    <text x="70" y="220" font-size="30">Plan the sweet part of your celebration.</text>
+    <text x="100" y="320" font-size="13" fill="#823f4d" letter-spacing="2">YOUR CELEBRATION</text>
+    <text x="100" y="370" font-size="14">Occasion</text>
+    <text x="116" y="372" font-size="13" fill="#7b6768">Birthday, wedding, baby shower...</text>
+    <text x="100" y="420" font-size="14">Product type</text>
+    <text x="145" y="472" font-size="14">Cake</text>
+    <text x="375" y="472" font-size="14">Cupcakes</text>
+    <text x="100" y="523" font-size="14">Number of guests</text>
+    <text x="330" y="523" font-size="14">Preferred flavor</text>
+    <text x="100" y="602" font-size="14">Style</text>
+    <text x="330" y="602" font-size="14">Budget</text>
+    <text x="100" y="687" font-size="15" fill="#fffaf5">CREATE MY RECOMMENDATION</text>
+    <text x="650" y="320" font-size="13" fill="#e8b9b5" letter-spacing="2">DEMO RECOMMENDATION</text>
+    <text x="650" y="355" font-size="26" fill="#fffaf5">A sweet fit for your plans.</text>
+    <text x="650" y="370" font-size="12" fill="#e8b9b5">RECOMMENDED AMOUNT</text>
+    <text x="650" y="410" font-size="15">8-inch cake</text>
+    <text x="650" y="430" font-size="12" fill="#e8b9b5">SUGGESTED FLAVOR · SUGGESTED DESIGN</text>
+    <text x="650" y="470" font-size="15">Vanilla · Minimal celebration finish</text>
+    <text x="650" y="490" font-size="12" fill="#e8b9b5">ESTIMATED PRICE</text>
+    <text x="650" y="530" font-size="15">$55–$85</text>
+    <text x="650" y="550" font-size="12" fill="#e8b9b5">A short explanation appears here.</text>
+    <text x="786" y="644" font-size="15" fill="#642c3a">SAVE RECOMMENDATION</text>
+    <text x="70" y="782" font-size="13" fill="#823f4d" letter-spacing="2">SAVED RECOMMENDATIONS</text>
+    <text x="430" y="782" font-size="13" fill="#7b6768">Latest saved ideas appear here.</text>
+  </g>
+</svg>

@@ -66,3 +66,40 @@ I will use the Supabase table `core_outputs` with these fields:
 ## Human Decision
 
 I chose to include both cakes and cupcakes because some celebrations need individual portions. I kept the recommendation as a clearly labeled demo because a paid AI service is too much for this week.
+
+## User
+
+I am building for a person planning a celebration who needs help choosing a cake or cupcakes.
+
+## UX Mockup
+
+I start with a simple form on the left and a result area on the right. The person enters the event details, chooses cake or cupcakes, and creates a recommendation. The result stays clearly marked as a demo. A save action and a small saved-results area make the next step easy to understand.
+
+The original wireframe is in `docs/WEEK1_CORE_WIREFRAME.svg`.
+
+## Architecture Sketch
+
+```text
+User form -> Demo recommendation -> Save button -> Supabase core_outputs -> Saved Recommendations dashboard
+```
+
+## DevOps Plan
+
+- I will test the page locally with the development server and the required form scenarios.
+- I will create a focused Git commit after the change is tested.
+- I will push the commit to GitHub when the Week 1 work is ready to share.
+- I will deploy the Next.js application with Vercel after the GitHub version is verified.
+
+## Test Plan
+
+1. I will enter a birthday for 8 guests, choose Cake, and confirm that the result includes a cake size, the chosen flavor and style, a price range, and a short explanation.
+2. I will enter a baby shower for 20 guests, choose Cupcakes, and confirm that the result shows a cupcake quantity and changes from the cake result.
+3. I will leave a required field empty, confirm that validation blocks the recommendation, then complete the form and confirm that Save adds the result to the saved-results dashboard.
+
+## Implementation Note
+
+I used a two-column form and result layout on the final page. This lets the person enter details and see the demo recommendation in the same view while keeping the layout responsive on smaller screens.
+
+## Scope Cut
+
+I did not add real AI image generation. Week 1 uses a structured demo recommendation so I can test the product flow without a paid AI service or an external AI API.
