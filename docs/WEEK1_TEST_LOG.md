@@ -26,3 +26,8 @@ I completed three manual test runs for the CakeMatch AI Generative Core.
 ## Human Decision Note
 
 I kept cakes and cupcakes because both are useful for different celebrations. I kept the recommendation as a demo because a paid AI service and real ordering are too much for Week 1.
+
+## Live Vercel Test
+
+- **Result:** The live Vercel test passed. The save feedback announced the result politely, the button showed `Saving...` while saving, and the button was disabled during the save.
+- **Status:** PASS

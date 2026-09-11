@@ -345,7 +345,7 @@ export default function CorePage() {
                 <button className="save-button" type="button" onClick={handleSave} disabled={isSaving}>
                   {isSaving ? "Saving..." : "Save Recommendation"}
                 </button>
-                {saveMessage ? <p className="save-message" role="status">{saveMessage}</p> : null}
+                {saveMessage ? <p className="save-message" role="status" aria-live="polite">{saveMessage}</p> : null}
               </article>
             ) : (
               <div className="recommendation-empty">
