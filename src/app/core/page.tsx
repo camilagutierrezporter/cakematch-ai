@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { supabase, type CoreOutput } from "@/lib/supabase/client";
 
 type ProductType = "cake" | "cupcakes";
 
@@ -67,10 +68,65 @@ function buildRecommendation(values: FormValues): Recommendation {
   };
 }
 
+function formatRecommendation(recommendation: Recommendation) {
+  return [
+    `Recommended amount: ${recommendation.amount}`,
+    `Suggested flavor: ${recommendation.flavor}`,
+    `Suggested design: ${recommendation.design}`,
+    `Estimated price: ${recommendation.price}`,
+    `Explanation: ${recommendation.explanation}`,
+  ].join("\n");
+}
+
+async function fetchSavedRecommendations() {
+  const { data, error } = await supabase
+    .from("core_outputs")
+    .select("id, created_at, occasion, product_type, guests, flavor, style, budget, recommendation")
+    .order("created_at", { ascending: false })
+    .limit(5);
+
+  if (error) {
+    throw error;
+  }
+
+  return data as CoreOutput[];
+}
+
 export default function CorePage() {
   const [values, setValues] = useState<FormValues>(initialValues);
   const [recommendation, setRecommendation] = useState<Recommendation | null>(null);
   const [error, setError] = useState("");
+  const [savedRecommendations, setSavedRecommendations] = useState<CoreOutput[]>([]);
+  const [dashboardError, setDashboardError] = useState("");
+  const [isLoadingSaved, setIsLoadingSaved] = useState(true);
+  const [isSaving, setIsSaving] = useState(false);
+  const [saveMessage, setSaveMessage] = useState("");
+
+  useEffect(() => {
+    let isMounted = true;
+
+    fetchSavedRecommendations()
+      .then((records) => {
+        if (isMounted) {
+          setSavedRecommendations(records);
+          setDashboardError("");
+        }
+      })
+      .catch(() => {
+        if (isMounted) {
+          setDashboardError("Saved recommendations are not available right now.");
+        }
+      })
+      .finally(() => {
+        if (isMounted) {
+          setIsLoadingSaved(false);
+        }
+      });
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
   function updateValue(field: keyof FormValues, value: string) {
     setValues((currentValues) => ({ ...currentValues, [field]: value }));
@@ -92,7 +148,43 @@ export default function CorePage() {
     }
 
     setError("");
+    setSaveMessage("");
     setRecommendation(buildRecommendation(values));
+  }
+
+  async function handleSave() {
+    if (!recommendation) {
+      return;
+    }
+
+    setIsSaving(true);
+    setSaveMessage("");
+
+    const { error: saveError } = await supabase.from("core_outputs").insert({
+      occasion: values.occasion,
+      product_type: values.productType,
+      guests: Number(values.guests),
+      flavor: values.flavor,
+      style: values.style,
+      budget: values.budget,
+      recommendation: formatRecommendation(recommendation),
+    });
+
+    if (saveError) {
+      setSaveMessage("We could not save this recommendation. Please try again.");
+      setIsSaving(false);
+      return;
+    }
+
+    try {
+      setSavedRecommendations(await fetchSavedRecommendations());
+      setDashboardError("");
+      setSaveMessage("Recommendation saved successfully.");
+    } catch {
+      setSaveMessage("Recommendation saved, but the dashboard could not refresh.");
+    } finally {
+      setIsSaving(false);
+    }
   }
 
   return (
@@ -250,6 +342,10 @@ export default function CorePage() {
                 </dl>
                 <p className="recommendation-explanation">{recommendation.explanation}</p>
                 <p className="demo-note">This is a demo suggestion, not a final quote or order.</p>
+                <button className="save-button" type="button" onClick={handleSave} disabled={isSaving}>
+                  {isSaving ? "Saving..." : "Save Recommendation"}
+                </button>
+                {saveMessage ? <p className="save-message" role="status">{saveMessage}</p> : null}
               </article>
             ) : (
               <div className="recommendation-empty">
@@ -261,6 +357,35 @@ export default function CorePage() {
             )}
           </section>
         </div>
+
+        <section className="saved-dashboard" aria-labelledby="saved-title">
+          <div className="saved-dashboard-heading">
+            <div>
+              <p className="eyebrow">Your saved ideas</p>
+              <h2 id="saved-title">Saved Recommendations</h2>
+            </div>
+            <span className="saved-count">Latest 5</span>
+          </div>
+          {isLoadingSaved ? <p className="dashboard-status">Loading saved recommendations...</p> : null}
+          {dashboardError ? <p className="dashboard-status" role="alert">{dashboardError}</p> : null}
+          {!isLoadingSaved && !dashboardError && savedRecommendations.length === 0 ? (
+            <p className="dashboard-status">Your saved recommendations will appear here.</p>
+          ) : null}
+          {savedRecommendations.length > 0 ? (
+            <div className="saved-list">
+              {savedRecommendations.map((savedRecommendation) => (
+                <article className="saved-item" key={savedRecommendation.id}>
+                  <div>
+                    <p className="saved-item-type">{savedRecommendation.product_type === "cake" ? "Cake" : "Cupcakes"}</p>
+                    <h3>{savedRecommendation.occasion}</h3>
+                  </div>
+                  <p>{savedRecommendation.guests} guests · {savedRecommendation.flavor}</p>
+                  <p>{savedRecommendation.style} · {savedRecommendation.budget}</p>
+                </article>
+              ))}
+            </div>
+          ) : null}
+        </section>
       </section>
 
       <footer className="site-footer">
