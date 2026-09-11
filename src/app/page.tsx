@@ -18,14 +18,13 @@ export default function Home() {
       <section className="hero" id="inicio">
         <div className="hero-copy">
           <p className="eyebrow">Design unforgettable moments</p>
-          <h1>Your perfect cake, in minutes</h1>
+          <h1>Your perfect cake or cupcakes, in minutes</h1>
           <p className="hero-description">
-            CakeMatch AI will help you find the perfect size, flavor, and design
-            for every celebration.
+            CakeMatch AI will help you find the right cake or cupcake quantity, flavor, and design for every celebration.
           </p>
           <div className="hero-actions">
             <Link className="primary-button" href="/core">
-              Design My Cake
+              Plan My Dessert
             </Link>
             <Link className="text-link" href="#como-funciona">
               See How It Works <span aria-hidden="true">↗</span>

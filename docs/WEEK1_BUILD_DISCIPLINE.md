@@ -103,3 +103,7 @@ I used a two-column form and result layout on the final page. This lets the pers
 ## Scope Cut
 
 I did not add real AI image generation. Week 1 uses a structured demo recommendation so I can test the product flow without a paid AI service or an external AI API.
+
+## What I changed after testing
+
+After testing the new cake and cupcake options, I noticed the homepage still only talked about cakes. I changed the homepage wording so visitors understand that CakeMatch AI now helps with cakes and cupcakes.
