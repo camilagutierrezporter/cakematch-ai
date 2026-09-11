@@ -10,6 +10,7 @@ export default function Home() {
         <div className="nav-links">
           <Link href="#inicio">Home</Link>
           <Link href="#como-funciona">How It Works</Link>
+          <Link href="/core">Core</Link>
           <Link href="/docs">Documentation</Link>
         </div>
       </nav>
@@ -23,9 +24,9 @@ export default function Home() {
             for every celebration.
           </p>
           <div className="hero-actions">
-            <button className="primary-button" type="button" disabled>
+            <Link className="primary-button" href="/core">
               Design My Cake
-            </button>
+            </Link>
             <Link className="text-link" href="#como-funciona">
               See How It Works <span aria-hidden="true">↗</span>
             </Link>

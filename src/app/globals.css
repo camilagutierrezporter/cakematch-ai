@@ -148,7 +148,8 @@ h1 {
   border: 1px solid var(--burgundy);
   border-radius: 2px;
   color: #fffaf5;
-  cursor: not-allowed;
+  cursor: pointer;
+  display: inline-block;
   font: inherit;
   font-size: 0.85rem;
   font-weight: 700;
@@ -339,6 +340,247 @@ h1 {
   max-width: 430px;
 }
 
+.core-page {
+  margin: 0 auto;
+  max-width: 1240px;
+  padding: 92px 6vw 115px;
+}
+
+.core-intro {
+  max-width: 720px;
+}
+
+.core-intro h1 {
+  font-size: clamp(3.2rem, 6vw, 5.8rem);
+  margin-bottom: 26px;
+}
+
+.core-description {
+  color: var(--ink-muted);
+  font-size: 1rem;
+  line-height: 1.7;
+  max-width: 480px;
+}
+
+.core-layout {
+  align-items: start;
+  border-top: 1px solid var(--line);
+  display: grid;
+  gap: clamp(35px, 6vw, 90px);
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.9fr);
+  margin-top: 70px;
+  padding-top: 42px;
+}
+
+.core-form,
+.recommendation-card,
+.recommendation-empty {
+  background: rgba(255, 250, 246, 0.68);
+  border: 1px solid var(--line);
+  padding: clamp(22px, 4vw, 42px);
+}
+
+.core-form-heading h2,
+.recommendation-card h2,
+.recommendation-empty h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.8rem, 3vw, 2.7rem);
+  font-weight: 400;
+  letter-spacing: -0.045em;
+  line-height: 1;
+  margin-bottom: 30px;
+}
+
+.core-form-heading .eyebrow,
+.recommendation-card-heading .eyebrow,
+.recommendation-empty .eyebrow {
+  margin-bottom: 13px;
+}
+
+.form-field,
+.product-options legend {
+  color: var(--foreground);
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  margin-bottom: 22px;
+}
+
+.form-field input,
+.form-field select {
+  background: #fffaf6;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  color: var(--foreground);
+  display: block;
+  font: inherit;
+  font-size: 0.9rem;
+  margin-top: 9px;
+  min-height: 48px;
+  padding: 12px 13px;
+  width: 100%;
+}
+
+.form-field input:focus,
+.form-field select:focus {
+  border-color: var(--burgundy);
+  outline: 2px solid var(--blush);
+  outline-offset: 1px;
+}
+
+.form-field input::placeholder {
+  color: #ae9694;
+}
+
+.product-options {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.product-choice-grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(2, 1fr);
+  margin-bottom: 22px;
+}
+
+.product-choice {
+  align-items: center;
+  background: #fffaf6;
+  border: 1px solid var(--line);
+  cursor: pointer;
+  display: flex;
+  font-size: 0.9rem;
+  gap: 10px;
+  min-height: 48px;
+  padding: 12px 13px;
+}
+
+.product-choice.selected {
+  border-color: var(--burgundy);
+  box-shadow: inset 0 0 0 1px var(--burgundy);
+}
+
+.product-choice input {
+  accent-color: var(--burgundy);
+  margin: 0;
+}
+
+.form-row {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.form-error {
+  color: var(--burgundy-dark);
+  font-size: 0.8rem;
+  line-height: 1.5;
+  margin: -2px 0 18px;
+}
+
+.core-submit {
+  border: 0;
+  width: 100%;
+}
+
+.recommendation-panel {
+  min-width: 0;
+}
+
+.recommendation-card {
+  background: var(--burgundy-dark);
+  border-color: var(--burgundy-dark);
+  color: #fffaf5;
+}
+
+.recommendation-card .eyebrow,
+.recommendation-card dt,
+.demo-note {
+  color: var(--blush);
+}
+
+.recommendation-card-heading {
+  align-items: start;
+  display: flex;
+  gap: 18px;
+  justify-content: space-between;
+}
+
+.recommendation-card h2 {
+  margin-bottom: 34px;
+}
+
+.demo-badge {
+  border: 1px solid var(--blush);
+  color: #fffaf5;
+  flex: 0 0 auto;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  padding: 7px 8px;
+  text-transform: uppercase;
+}
+
+.recommendation-details {
+  border-top: 1px solid rgba(245, 223, 218, 0.35);
+  margin: 0;
+}
+
+.recommendation-details div {
+  border-bottom: 1px solid rgba(245, 223, 218, 0.35);
+  padding: 15px 0;
+}
+
+.recommendation-details dt {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.recommendation-details dd {
+  font-size: 0.95rem;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.recommendation-explanation {
+  font-size: 0.9rem;
+  line-height: 1.65;
+  margin: 25px 0 18px;
+}
+
+.demo-note {
+  font-size: 0.72rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.recommendation-empty {
+  min-height: 470px;
+}
+
+.empty-mark {
+  color: var(--burgundy);
+  display: block;
+  font-size: 2rem;
+  margin-bottom: 58px;
+}
+
+.recommendation-empty h2 {
+  max-width: 330px;
+}
+
+.recommendation-empty > p:last-child {
+  color: var(--ink-muted);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  max-width: 320px;
+}
+
 @media (max-width: 700px) {
   .site-nav { align-items: flex-start; gap: 20px; }
   .nav-links { flex-wrap: wrap; gap: 10px 18px; justify-content: flex-end; }
@@ -349,6 +591,10 @@ h1 {
   .feature-grid { grid-template-columns: repeat(2, 1fr); }
   .site-footer { align-items: flex-start; flex-direction: column; gap: 10px; }
   .placeholder-page { padding-left: 22px; padding-right: 22px; }
+  .core-page { padding-bottom: 82px; padding-top: 76px; }
+  .core-layout { display: flex; flex-direction: column; margin-top: 55px; }
+  .core-form,
+  .recommendation-panel { width: 100%; }
 }
 
 @media (max-width: 430px) {
@@ -363,4 +609,8 @@ h1 {
   .hero-actions { align-items: flex-start; flex-direction: column; gap: 22px; }
   .primary-button { min-height: 52px; }
   .feature-card { min-height: 180px; padding: 16px 14px; }
+  .core-page { padding-left: 22px; padding-right: 22px; padding-top: 62px; }
+  .form-row { display: block; }
+  .product-choice-grid { gap: 8px; }
+  .recommendation-empty { min-height: 380px; }
 }
