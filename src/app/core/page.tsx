@@ -197,6 +197,7 @@ export default function CorePage() {
           <Link href="/">Home</Link>
           <Link href="/#como-funciona">How It Works</Link>
           <Link href="/core" aria-current="page">Core</Link>
+          <Link href="/research">Research</Link>
           <Link href="/docs">Documentation</Link>
         </div>
       </nav>

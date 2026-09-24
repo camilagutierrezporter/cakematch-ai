@@ -11,6 +11,7 @@ export default function Home() {
           <Link href="#inicio">Home</Link>
           <Link href="#como-funciona">How It Works</Link>
           <Link href="/core">Core</Link>
+          <Link href="/research">Research</Link>
           <Link href="/docs">Documentation</Link>
         </div>
       </nav>
