@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1160" viewBox="0 0 1400 1160" role="img" aria-labelledby="title description">
+  <title id="title">CakeMatch AI Week 2 Research wireframe</title>
+  <desc id="description">A CakeMatch AI research dashboard wireframe showing research intake, five benchmark cards, a competitor search and filter table, a risk map, and saved research.</desc>
+  <rect width="1400" height="1160" fill="#fffaf6"/>
+  <g fill="none" stroke="#39252a" stroke-width="2">
+    <path d="M70 112H1330" stroke="#e3ccc9"/>
+    <rect x="70" y="154" width="1260" height="124" rx="2" stroke="#e3ccc9"/>
+    <rect x="70" y="316" width="1260" height="236" rx="2"/>
+    <rect x="70" y="590" width="820" height="374" rx="2"/>
+    <rect x="920" y="590" width="410" height="374" rx="2"/>
+    <rect x="70" y="1002" width="1260" height="94" rx="2" stroke="#e3ccc9"/>
+    <rect x="102" y="214" width="270" height="42" rx="2" stroke="#e3ccc9"/>
+    <rect x="392" y="214" width="270" height="42" rx="2" stroke="#e3ccc9"/>
+    <rect x="682" y="214" width="270" height="42" rx="2" stroke="#e3ccc9"/>
+    <rect x="972" y="214" width="326" height="42" rx="2" fill="#823f4d" stroke="#823f4d"/>
+    <rect x="102" y="394" width="224" height="122" rx="2" stroke="#e3ccc9"/>
+    <rect x="342" y="394" width="224" height="122" rx="2" stroke="#e3ccc9"/>
+    <rect x="582" y="394" width="224" height="122" rx="2" stroke="#e3ccc9"/>
+    <rect x="822" y="394" width="224" height="122" rx="2" stroke="#e3ccc9"/>
+    <rect x="1062" y="394" width="236" height="122" rx="2" stroke="#e3ccc9"/>
+    <rect x="102" y="660" width="300" height="42" rx="2" stroke="#e3ccc9"/>
+    <rect x="420" y="660" width="180" height="42" rx="2" stroke="#e3ccc9"/>
+    <rect x="618" y="660" width="180" height="42" rx="2" stroke="#e3ccc9"/>
+    <path d="M102 738H858M102 795H858M102 852H858M102 909H858" stroke="#e3ccc9"/>
+    <path d="M1120 666V890M980 778H1270" stroke="#e3ccc9"/>
+    <path d="M980 858H1270" stroke="#e3ccc9"/>
+    <circle cx="1048" cy="735" r="14" fill="#e8b9b5" stroke="#823f4d"/>
+    <circle cx="1168" cy="820" r="14" fill="#823f4d" stroke="#823f4d"/>
+    <circle cx="1240" cy="720" r="14" fill="#f5dfda" stroke="#823f4d"/>
+    <path d="M102 1038H1298" stroke="#e3ccc9"/>
+  </g>
+  <g fill="#39252a" font-family="Arial, Helvetica, sans-serif">
+    <text x="70" y="78" font-size="28" font-weight="700">CakeMatch <tspan fill="#823f4d">AI</tspan></text>
+    <text x="1010" y="78" font-size="14">Home   Core   Research   Documentation</text>
+    <text x="70" y="190" font-size="16" fill="#823f4d" letter-spacing="2">RESEARCH DESK · WEEK 2</text>
+    <text x="70" y="232" font-size="30">Make the next product decision with evidence.</text>
+    <text x="102" y="352" font-size="13" fill="#823f4d" letter-spacing="2">RESEARCH INTAKE</text>
+    <text x="102" y="385" font-size="14">Research title</text>
+    <text x="392" y="385" font-size="14">Research question</text>
+    <text x="682" y="385" font-size="14">Target customer</text>
+    <text x="1020" y="242" font-size="15" fill="#fffaf5">CREATE RESEARCH SNAPSHOT</text>
+    <text x="102" y="428" font-size="13" fill="#823f4d" letter-spacing="2">GLOBAL BENCHMARKS · 5</text>
+    <text x="125" y="466" font-size="16">Benchmark 01</text>
+    <text x="365" y="466" font-size="16">Benchmark 02</text>
+    <text x="605" y="466" font-size="16">Benchmark 03</text>
+    <text x="845" y="466" font-size="16">Benchmark 04</text>
+    <text x="1085" y="466" font-size="16">Benchmark 05</text>
+    <text x="125" y="492" font-size="12" fill="#7b6768">Pattern · source · date</text>
+    <text x="365" y="492" font-size="12" fill="#7b6768">Pattern · source · date</text>
+    <text x="605" y="492" font-size="12" fill="#7b6768">Pattern · source · date</text>
+    <text x="845" y="492" font-size="12" fill="#7b6768">Pattern · source · date</text>
+    <text x="1085" y="492" font-size="12" fill="#7b6768">Pattern · source · date</text>
+    <text x="70" y="626" font-size="13" fill="#823f4d" letter-spacing="2">COMPETITORS OR SUBSTITUTES · 8</text>
+    <text x="102" y="686" font-size="13" fill="#7b6768">Search competitors</text>
+    <text x="440" y="686" font-size="13" fill="#7b6768">Type ▾</text>
+    <text x="638" y="686" font-size="13" fill="#7b6768">Risk ▾</text>
+    <text x="102" y="733" font-size="12" fill="#823f4d">NAME</text>
+    <text x="300" y="733" font-size="12" fill="#823f4d">TYPE</text>
+    <text x="430" y="733" font-size="12" fill="#823f4d">MARKET</text>
+    <text x="580" y="733" font-size="12" fill="#823f4d">STRENGTH</text>
+    <text x="752" y="733" font-size="12" fill="#823f4d">RISK</text>
+    <text x="102" y="770" font-size="14">Competitor or substitute 01</text>
+    <text x="300" y="770" font-size="13">Bakery</text>
+    <text x="430" y="770" font-size="13">Mexico</text>
+    <text x="580" y="770" font-size="13">Trust</text>
+    <text x="752" y="770" font-size="13">Medium</text>
+    <text x="102" y="827" font-size="14">Competitor or substitute 02</text>
+    <text x="300" y="827" font-size="13">Marketplace</text>
+    <text x="430" y="827" font-size="13">Global</text>
+    <text x="580" y="827" font-size="13">Choice</text>
+    <text x="752" y="827" font-size="13">High</text>
+    <text x="102" y="884" font-size="14">Competitors or substitutes 03–08</text>
+    <text x="300" y="884" font-size="13" fill="#7b6768">Rows continue in the table</text>
+    <text x="920" y="626" font-size="13" fill="#823f4d" letter-spacing="2">SIMPLE RISK MAP</text>
+    <text x="980" y="800" font-size="12" fill="#7b6768">LOW</text>
+    <text x="1150" y="800" font-size="12" fill="#7b6768">HIGH</text>
+    <text x="1128" y="682" font-size="12" fill="#7b6768">DEMAND</text>
+    <text x="1128" y="932" font-size="12" fill="#7b6768">EXECUTION</text>
+    <text x="70" y="1034" font-size="13" fill="#823f4d" letter-spacing="2">SAVED RESEARCH</text>
+    <text x="70" y="1070" font-size="15">Latest saved snapshot · title · market · saved date</text>
+    <text x="1050" y="1058" font-size="14" fill="#642c3a">SAVE RESEARCH RECORD</text>
+  </g>
+</svg>
