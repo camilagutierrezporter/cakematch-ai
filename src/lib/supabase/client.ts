@@ -1,4 +1,4 @@
-import { createClient } from "@supabase/supabase-js";
+import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 
 export type CoreOutput = {
   id: string;
@@ -81,4 +81,10 @@ if (!supabaseUrl || !supabasePublishableKey) {
   throw new Error("Missing Supabase public environment variables.");
 }
 
-export const supabase = createClient<Database>(supabaseUrl, supabasePublishableKey);
+const globalForSupabase = globalThis as typeof globalThis & {
+  cakematchSupabase?: SupabaseClient<Database>;
+};
+
+export const supabase = globalForSupabase.cakematchSupabase ?? createClient<Database>(supabaseUrl, supabasePublishableKey);
+
+globalForSupabase.cakematchSupabase = supabase;
