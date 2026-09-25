@@ -304,7 +304,7 @@ export default function ResearchPage() {
           <p className="eyebrow">Research Desk · Week 2</p>
           <h1 id="research-title">Make the next product decision with evidence.</h1>
           <p className="research-description">
-            I am building a simple research snapshot for CakeMatch AI. The analysis below is a student-created starting point, not live market data.
+            This dashboard helps the CakeMatch team research customer needs, compare competitors, review benchmarks and risks, and make better product decisions. The analysis below is a student-created starting point, not live market data.
           </p>
         </div>
 
