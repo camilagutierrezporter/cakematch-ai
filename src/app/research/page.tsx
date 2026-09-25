@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { supabase, type ResearchOutput } from "@/lib/supabase/client";
 
 type Competitor = {
   name: string;
@@ -159,12 +160,37 @@ const riskItems = [
 const marketOptions = ["All markets", "Mexico", "Mexico and Latin America", "Global", "United States", "United Kingdom"];
 const typeOptions = ["All types", "Bakery chain", "Custom bakery", "Delivery marketplace", "Marketplace", "Direct-to-consumer bakery", "Social substitute"];
 
+function buildResearchSummary(topic: string, targetUser: string, market: string, goal: string) {
+  return `Student-created analysis for ${topic.trim()} in ${market}. I am researching ${targetUser.trim()} to ${goal.trim().toLowerCase()}. The five benchmarks suggest that guided discovery, clear comparison, distinctive product voice, and visible delivery details could help CakeMatch. Mexico localization should prioritize MXN prices, WhatsApp-friendly follow-up, local delivery limits, event traditions, and customization. The eight competitor and substitute examples show that CakeMatch must earn trust through practical planning help rather than compete only on catalog size. This is a deterministic research summary, not live AI or live market data.`;
+}
+
+async function fetchSavedResearch() {
+  const { data, error } = await supabase
+    .from("research_outputs")
+    .select("id, created_at, topic, target_user, market, research_goal, summary, benchmarks, competitors, risks")
+    .order("created_at", { ascending: false })
+    .limit(5);
+
+  if (error) {
+    throw error;
+  }
+
+  return data as ResearchOutput[];
+}
+
 export default function ResearchPage() {
   const [topic, setTopic] = useState("Celebration dessert planning");
   const [targetUser, setTargetUser] = useState("People planning a celebration");
   const [market, setMarket] = useState("Mexico");
   const [goal, setGoal] = useState("Understand how CakeMatch can make cake decisions easier");
   const [hasGenerated, setHasGenerated] = useState(false);
+  const [summary, setSummary] = useState("");
+  const [formError, setFormError] = useState("");
+  const [savedResearch, setSavedResearch] = useState<ResearchOutput[]>([]);
+  const [isLoadingSaved, setIsLoadingSaved] = useState(true);
+  const [isSaving, setIsSaving] = useState(false);
+  const [saveMessage, setSaveMessage] = useState("");
+  const [dashboardError, setDashboardError] = useState("");
   const [search, setSearch] = useState("");
   const [marketFilter, setMarketFilter] = useState("All markets");
   const [typeFilter, setTypeFilter] = useState("All types");
@@ -181,9 +207,81 @@ export default function ResearchPage() {
     });
   }, [marketFilter, search, typeFilter]);
 
+  useEffect(() => {
+    let isMounted = true;
+
+    fetchSavedResearch()
+      .then((records) => {
+        if (isMounted) {
+          setSavedResearch(records);
+          setDashboardError("");
+        }
+      })
+      .catch(() => {
+        if (isMounted) {
+          setDashboardError("Saved research is not available right now.");
+        }
+      })
+      .finally(() => {
+        if (isMounted) {
+          setIsLoadingSaved(false);
+        }
+      });
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
   function handleGenerate(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if ([topic, targetUser, market, goal].some((value) => !value.trim())) {
+      setFormError("Please complete every research intake field before generating the dashboard.");
+      setHasGenerated(false);
+      setSummary("");
+      return;
+    }
+
+    setFormError("");
+    setSaveMessage("");
+    setSummary(buildResearchSummary(topic, targetUser, market, goal));
     setHasGenerated(true);
+  }
+
+  async function handleSave() {
+    if (!hasGenerated || !summary) {
+      return;
+    }
+
+    setIsSaving(true);
+    setSaveMessage("");
+
+    const { error } = await supabase.from("research_outputs").insert({
+      topic: topic.trim(),
+      target_user: targetUser.trim(),
+      market: market.trim(),
+      research_goal: goal.trim(),
+      summary,
+      benchmarks,
+      competitors,
+      risks: [...riskItems],
+    });
+
+    if (error) {
+      setSaveMessage("We could not save this research. Please check the Supabase setup and try again.");
+      setIsSaving(false);
+      return;
+    }
+
+    try {
+      setSavedResearch(await fetchSavedResearch());
+      setDashboardError("");
+      setSaveMessage("Research saved successfully.");
+    } catch {
+      setSaveMessage("Research saved, but the dashboard could not refresh.");
+    } finally {
+      setIsSaving(false);
+    }
   }
 
   return (
@@ -243,7 +341,22 @@ export default function ResearchPage() {
               {hasGenerated ? `Snapshot ready for ${market}.` : "Static research snapshot ready to review."}
             </p>
           </div>
+          {formError ? <p className="form-error" role="alert">{formError}</p> : null}
         </form>
+
+        {hasGenerated ? (
+          <section className="research-output" aria-labelledby="research-output-title">
+            <div>
+              <p className="eyebrow">Student-created analysis</p>
+              <h2 id="research-output-title">A focused research starting point.</h2>
+              <p>{summary}</p>
+            </div>
+            <button className="save-button research-save-button" type="button" onClick={handleSave} disabled={isSaving}>
+              {isSaving ? "Saving..." : "Save Research"}
+            </button>
+            {saveMessage ? <p className="save-message research-save-message" role="status" aria-live="polite">{saveMessage}</p> : null}
+          </section>
+        ) : null}
 
         <section className="research-section" aria-labelledby="benchmarks-title">
           <div className="research-section-heading">
@@ -347,9 +460,26 @@ export default function ResearchPage() {
           <div>
             <p className="eyebrow">Saved research</p>
             <h2 id="saved-research-title">Your latest snapshot will live here.</h2>
-            <p>Supabase saving will be connected in the next step. This static placeholder keeps the dashboard shape visible while the research workflow is reviewed.</p>
+            <p>Saved records are student-created research snapshots. They are not live AI or live market data.</p>
           </div>
-          <span className="saved-placeholder">Next step · Supabase</span>
+          <span className="saved-placeholder">Latest 5</span>
+          {isLoadingSaved ? <p className="dashboard-status" role="status">Loading saved research...</p> : null}
+          {dashboardError ? <p className="dashboard-status" role="alert">{dashboardError}</p> : null}
+          {!isLoadingSaved && !dashboardError && savedResearch.length === 0 ? (
+            <p className="dashboard-status">Your saved research records will appear here.</p>
+          ) : null}
+          {savedResearch.length > 0 ? (
+            <div className="saved-research-list">
+              {savedResearch.map((record) => (
+                <article className="saved-research-item" key={record.id}>
+                  <p className="saved-item-type">{record.market}</p>
+                  <h3>{record.topic}</h3>
+                  <p>{record.target_user}</p>
+                  <p>{new Date(record.created_at).toLocaleDateString()}</p>
+                </article>
+              ))}
+            </div>
+          ) : null}
         </section>
       </section>
 

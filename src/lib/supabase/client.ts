@@ -12,6 +12,45 @@ export type CoreOutput = {
   recommendation: string;
 };
 
+export type ResearchBenchmark = {
+  name: string;
+  country: string;
+  pattern: string;
+  relevance: string;
+  source: string;
+  accessed: string;
+};
+
+export type ResearchCompetitor = {
+  name: string;
+  type: string;
+  market: string;
+  offer: string;
+  strength: string;
+  gap: string;
+  risk: "Low" | "Medium" | "High";
+  source: string;
+};
+
+export type ResearchRisk = {
+  name: string;
+  level: "Low" | "Medium" | "High";
+  detail: string;
+};
+
+export type ResearchOutput = {
+  id: number;
+  created_at: string;
+  topic: string;
+  target_user: string;
+  market: string;
+  research_goal: string;
+  summary: string;
+  benchmarks: ResearchBenchmark[];
+  competitors: ResearchCompetitor[];
+  risks: ResearchRisk[];
+};
+
 type Database = {
   public: {
     Tables: {
@@ -19,6 +58,12 @@ type Database = {
         Row: CoreOutput;
         Insert: Omit<CoreOutput, "id" | "created_at">;
         Update: Partial<Omit<CoreOutput, "id" | "created_at">>;
+        Relationships: [];
+      };
+      research_outputs: {
+        Row: ResearchOutput;
+        Insert: Omit<ResearchOutput, "id" | "created_at">;
+        Update: Partial<Omit<ResearchOutput, "id" | "created_at">>;
         Relationships: [];
       };
     };
