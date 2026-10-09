@@ -295,6 +295,8 @@ export default function ResearchPage() {
           <Link href="/#como-funciona">How It Works</Link>
           <Link href="/core">Core</Link>
           <Link href="/research" aria-current="page">Research</Link>
+          <Link href="/product">Product</Link>
+          <Link href="/pricing">Pricing</Link>
           <Link href="/docs">Documentation</Link>
         </div>
       </nav>

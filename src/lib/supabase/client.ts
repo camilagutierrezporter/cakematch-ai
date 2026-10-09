@@ -51,6 +51,17 @@ export type ResearchOutput = {
   risks: ResearchRisk[];
 };
 
+export type PricingScenarioRow = {
+  id: string;
+  created_at: string;
+  name: string;
+  scenario_type: "Conservador" | "Optimista";
+  customer_counts: { freePlannerUsers: number; plannerPlusSubscribers: number; bakeryProSubscribers: number };
+  monthly_prices: { plannerPlusPrice: number; bakeryProPrice: number };
+  monthly_revenue: number;
+  annual_revenue: number;
+};
+
 type Database = {
   public: {
     Tables: {
@@ -64,6 +75,12 @@ type Database = {
         Row: ResearchOutput;
         Insert: Omit<ResearchOutput, "id" | "created_at">;
         Update: Partial<Omit<ResearchOutput, "id" | "created_at">>;
+        Relationships: [];
+      };
+      pricing_scenarios: {
+        Row: PricingScenarioRow;
+        Insert: Omit<PricingScenarioRow, "id" | "created_at">;
+        Update: Partial<Omit<PricingScenarioRow, "id" | "created_at">>;
         Relationships: [];
       };
     };

@@ -1210,3 +1210,115 @@ h1 {
   .risk-item { flex-direction: column; }
   .saved-research-list { grid-template-columns: 1fr; }
 }
+
+/* Week 3 product architecture and pricing simulator */
+.product-page,
+.pricing-page {
+  margin: 0 auto;
+  max-width: 1240px;
+  padding: 90px 6vw 110px;
+}
+.product-intro,
+.pricing-intro { max-width: 790px; }
+.product-intro h1,
+.pricing-intro h1 { font-size: clamp(3rem, 6vw, 5.5rem); }
+.product-lead { color: var(--ink-muted); font-size: 1.05rem; line-height: 1.75; max-width: 700px; }
+.assumption-note { color: var(--ink-muted); font-size: 0.8rem; line-height: 1.65; max-width: 760px; }
+.product-section,
+.pricing-tiers,
+.saved-scenarios { margin-top: 86px; }
+.product-section > h2,
+.product-section .section-heading h2,
+.pricing-tiers .section-heading h2,
+.saved-scenarios .section-heading h2 { font-size: clamp(2rem, 4vw, 3.2rem); margin-bottom: 22px; }
+.segment-grid,
+.tier-grid { display: grid; gap: 18px; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 28px; }
+.segment-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.segment-card,
+.tier-card,
+.simulator-card,
+.saved-scenario-card { background: rgba(255, 250, 246, 0.78); border: 1px solid var(--line); padding: 26px; }
+.segment-card { min-height: 250px; }
+.segment-card h3,
+.tier-card h3,
+.saved-scenario-card h3 { font-family: Georgia, "Times New Roman", serif; font-size: 1.55rem; font-weight: 400; line-height: 1.2; margin: 22px 0 14px; }
+.segment-card p,
+.tier-card p { color: var(--ink-muted); font-size: 0.88rem; line-height: 1.7; }
+.segment-card .text-link { display: inline-block; margin-top: 10px; }
+.status-pill { background: #e4eee2; color: #41603f; display: inline-block; font-size: 0.63rem; font-weight: 700; letter-spacing: 0.07em; line-height: 1.4; padding: 6px 9px; text-transform: uppercase; }
+.status-proposed { background: var(--blush-light); color: var(--burgundy-dark); }
+.feature-map-wrap,
+.assumptions-table-wrap { overflow-x: auto; }
+.feature-map,
+.assumptions-table { border-collapse: collapse; min-width: 850px; width: 100%; }
+.feature-map th,
+.feature-map td,
+.assumptions-table th,
+.assumptions-table td { border-bottom: 1px solid var(--line); font-size: 0.8rem; line-height: 1.55; padding: 17px 14px; text-align: left; vertical-align: top; }
+.feature-map thead th,
+.assumptions-table thead th { color: var(--burgundy); font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; }
+.feature-map tbody th,
+.assumptions-table tbody th { min-width: 150px; }
+.feature-map td { color: var(--ink-muted); }
+.tier-card { display: flex; flex-direction: column; min-height: 310px; }
+.tier-card .eyebrow { font-size: 0.62rem; line-height: 1.5; margin-bottom: 0; }
+.tier-card h3 { margin: 18px 0 8px; }
+.tier-price { color: var(--burgundy-dark) !important; font-size: 1.7rem !important; font-weight: 700; margin: 0 0 14px; }
+.tier-price span { font-size: 0.72rem; font-weight: 400; }
+.tier-card ul { color: var(--ink-muted); font-size: 0.82rem; line-height: 1.7; margin: 0 0 22px; padding-left: 18px; }
+.tier-card .status-pill { align-self: flex-start; margin-top: auto; }
+.tier-featured { background: var(--blush-light); border-color: var(--blush); }
+.product-actions { margin-top: 28px; }
+.pricing-tiers { margin-top: 72px; }
+.simulator-card { margin-top: 54px; padding: clamp(22px, 4vw, 42px); }
+.simulator-heading { align-items: center; display: flex; flex-wrap: wrap; gap: 18px; justify-content: space-between; }
+.simulator-heading h2 { font-size: clamp(2rem, 4vw, 3rem); margin: 0; }
+.scenario-toggle { background: var(--blush-light); display: inline-flex; gap: 5px; margin-top: 28px; padding: 5px; }
+.scenario-button { background: transparent; border: 1px solid transparent; color: var(--burgundy-dark); cursor: pointer; font: inherit; font-size: 0.8rem; padding: 11px 18px; }
+.scenario-button.is-active { background: #fffaf6; border-color: var(--line); font-weight: 700; }
+.scenario-description { color: var(--ink-muted); font-size: 0.82rem; line-height: 1.6; margin: 14px 0 24px; }
+.assumption-grid { display: grid; gap: 18px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.assumption-group { border: 1px solid var(--line); display: grid; gap: 10px; grid-template-columns: 1fr; margin: 0; padding: 20px; }
+.assumption-group legend { color: var(--burgundy-dark); font-family: Georgia, "Times New Roman", serif; font-size: 1.2rem; padding: 0 8px; }
+.assumption-group label,
+.save-scenario-form label { color: var(--ink-muted); font-size: 0.75rem; font-weight: 700; }
+.assumption-group input,
+.save-scenario-row input { background: #fffaf6; border: 1px solid var(--line); border-radius: 0; color: var(--foreground); font: inherit; min-height: 48px; padding: 11px 13px; width: 100%; }
+.assumption-group input:focus,
+.save-scenario-row input:focus { border-color: var(--burgundy); outline: 2px solid var(--blush); outline-offset: 1px; }
+.revenue-results { display: grid; gap: 14px; grid-template-columns: repeat(2, minmax(0, 1fr)); margin: 22px 0 34px; }
+.revenue-results article { background: var(--burgundy); color: #fffaf5; display: flex; flex-direction: column; gap: 9px; padding: 22px; }
+.revenue-results article span { font-size: 0.76rem; }
+.revenue-results strong { font-family: Georgia, "Times New Roman", serif; font-size: clamp(1.7rem, 3vw, 2.7rem); font-weight: 400; }
+.revenue-results small { color: #f5dfda; font-size: 0.7rem; }
+.assumptions-table-wrap h3 { font-family: Georgia, "Times New Roman", serif; font-size: 1.35rem; font-weight: 400; }
+.save-scenario-form { border-top: 1px solid var(--line); display: grid; gap: 10px; margin-top: 28px; padding-top: 25px; }
+.save-scenario-row { display: flex; gap: 12px; }
+.save-scenario-row .primary-button { flex: 0 0 auto; }
+.form-message { color: #41603f; font-size: 0.82rem; margin: 0; }
+.form-error { color: #9b2935; }
+.empty-state { background: rgba(255, 250, 246, 0.7); border: 1px dashed var(--line); color: var(--ink-muted); line-height: 1.7; padding: 24px; }
+.saved-scenario-list { display: grid; gap: 12px; }
+.saved-scenario-card { align-items: center; display: grid; gap: 20px; grid-template-columns: minmax(0, 1.2fr) minmax(190px, 0.8fr) auto; }
+.saved-scenario-card h3 { margin: 12px 0 6px; }
+.saved-scenario-card p { color: var(--ink-muted); font-size: 0.78rem; margin: 0; }
+.saved-values { display: grid; gap: 8px; }
+.saved-values span { color: var(--burgundy-dark); font-weight: 700; }
+.saved-values small { color: var(--ink-muted); font-size: 0.7rem; font-weight: 400; }
+.remove-button { background: transparent; border: 1px solid var(--line); color: var(--burgundy-dark); cursor: pointer; font: inherit; font-size: 0.75rem; padding: 10px 12px; }
+.remove-button:hover { background: var(--blush-light); }
+
+@media (max-width: 760px) {
+  .product-page,
+  .pricing-page { padding: 68px 22px 82px; }
+  .segment-grid,
+  .tier-grid,
+  .assumption-grid,
+  .revenue-results { grid-template-columns: 1fr; }
+  .saved-scenario-card { align-items: flex-start; grid-template-columns: 1fr; }
+  .save-scenario-row { align-items: stretch; flex-direction: column; }
+  .save-scenario-row .primary-button { width: 100%; }
+  .product-section,
+  .pricing-tiers,
+  .saved-scenarios { margin-top: 64px; }
+}
