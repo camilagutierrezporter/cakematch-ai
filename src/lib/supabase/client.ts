@@ -1,4 +1,11 @@
 import { createClient, type SupabaseClient } from "@supabase/supabase-js";
+import type {
+  CakeDesignTranscriptMessage,
+  CakeInspirationSource,
+  DesignFeeling,
+  DesignGuardrailCategory,
+  UniqueCakeDetail,
+} from "../cake-design.mjs";
 
 export type CoreOutput = {
   id: string;
@@ -77,6 +84,29 @@ export type MarketingAssetRow = {
   content: string;
 };
 
+export type CakeDesignChatRow = {
+  id: string;
+  owner_id: string;
+  created_at: string;
+  updated_at: string;
+  feeling: DesignFeeling;
+  unique_detail: UniqueCakeDetail;
+  inspiration: CakeInspirationSource;
+  design_description: string;
+  guardrail_categories: DesignGuardrailCategory[];
+  transcript: CakeDesignTranscriptMessage[];
+};
+
+export type CakeDesignFeedbackRow = {
+  id: string;
+  owner_id: string;
+  session_id: string;
+  design_version: "week5-design-v1";
+  vote: "up" | "down";
+  created_at: string;
+  updated_at: string;
+};
+
 type Database = {
   public: {
     Tables: {
@@ -102,6 +132,18 @@ type Database = {
         Row: MarketingAssetRow;
         Insert: Omit<MarketingAssetRow, "id" | "created_at">;
         Update: Partial<Omit<MarketingAssetRow, "id" | "created_at">>;
+        Relationships: [];
+      };
+      chat_sessions: {
+        Row: CakeDesignChatRow;
+        Insert: Omit<CakeDesignChatRow, "id" | "created_at">;
+        Update: Partial<Omit<CakeDesignChatRow, "id" | "owner_id" | "created_at">>;
+        Relationships: [];
+      };
+      chat_feedback: {
+        Row: CakeDesignFeedbackRow;
+        Insert: Omit<CakeDesignFeedbackRow, "id" | "created_at">;
+        Update: Partial<Omit<CakeDesignFeedbackRow, "id" | "owner_id" | "session_id" | "created_at">>;
         Relationships: [];
       };
     };
