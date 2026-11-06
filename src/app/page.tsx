@@ -32,6 +32,9 @@ export default function Home() {
             <Link className="primary-button" href="/core">
               Create My Recommendation
             </Link>
+            <Link className="text-link" href="/chat">
+              Try the guided chat <span aria-hidden="true">↗</span>
+            </Link>
             <Link className="text-link" href="#who-its-for">
               Who It&apos;s For <span aria-hidden="true">↗</span>
             </Link>
