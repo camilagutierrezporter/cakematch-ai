@@ -1,4 +1,5 @@
 import Link from "next/link";
+import AbHeadlineTester from "./ab-headline-tester";
 
 const socialPosts = [
   {
@@ -366,6 +367,8 @@ export default function MarketingPage() {
             ))}
           </ol>
         </section>
+
+        <AbHeadlineTester />
       </div>
 
       <footer className="site-footer">
