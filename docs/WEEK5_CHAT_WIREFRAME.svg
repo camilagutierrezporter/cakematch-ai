@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1540" viewBox="0 0 1200 1540" role="img" aria-labelledby="title description">
+  <title id="title">CakeMatch AI Week 5 chat wireframe</title>
+  <desc id="description">A clean chat page wireframe showing event type, guest count, and MXN budget questions; a cake recommendation with save and thumbs feedback; and a safety guardrail with a copyable, unsent baker brief.</desc>
+  <rect width="1200" height="1540" fill="#fbf3ed"/>
+
+  <g fill="none" stroke="#e3ccc9" stroke-width="2">
+    <path d="M70 112H1130"/>
+    <rect x="150" y="286" width="900" height="1190" rx="8" fill="#fffaf6"/>
+    <rect x="190" y="316" width="820" height="56" rx="4" fill="#f5dfda"/>
+    <rect x="190" y="393" width="820" height="46" rx="4"/>
+    <rect x="214" y="460" width="590" height="76" rx="14" fill="#fbf3ed"/>
+    <rect x="674" y="548" width="300" height="52" rx="14" fill="#f5dfda" stroke="#e8b9b5"/>
+    <rect x="214" y="612" width="590" height="76" rx="14" fill="#fbf3ed"/>
+    <rect x="674" y="700" width="300" height="52" rx="14" fill="#f5dfda" stroke="#e8b9b5"/>
+    <rect x="214" y="764" width="590" height="76" rx="14" fill="#fbf3ed"/>
+    <rect x="674" y="852" width="300" height="52" rx="14" fill="#f5dfda" stroke="#e8b9b5"/>
+    <rect x="214" y="924" width="760" height="292" rx="6" fill="#fffaf6" stroke="#823f4d"/>
+    <path d="M244 1032H944M244 1094H944" stroke="#e3ccc9"/>
+    <rect x="244" y="1138" width="280" height="48" rx="3" fill="#823f4d" stroke="#823f4d"/>
+    <rect x="214" y="1240" width="760" height="190" rx="6" fill="#f5dfda" stroke="#e8b9b5"/>
+    <rect x="244" y="1360" width="250" height="44" rx="3" fill="#fffaf6" stroke="#823f4d"/>
+    <rect x="505" y="1360" width="150" height="44" rx="3" fill="#fffaf6" stroke="#e3ccc9"/>
+    <path d="M70 1500H1130"/>
+  </g>
+
+  <g fill="#39252a" font-family="Arial, Helvetica, sans-serif">
+    <text x="70" y="78" font-size="28" font-weight="700">CakeMatch <tspan fill="#823f4d">AI</tspan></text>
+    <text x="800" y="78" font-size="14" fill="#7b6768">Home   How It Works   Core   Chat</text>
+
+    <text x="150" y="174" font-size="13" fill="#823f4d" letter-spacing="2">A GUIDED CAKE CHAT</text>
+    <text x="150" y="218" font-size="36" font-family="Georgia, 'Times New Roman', serif">Let's plan something sweet.</text>
+    <text x="150" y="250" font-size="15" fill="#7b6768">A simple starting point for your celebration. No orders or bakery quotes here.</text>
+
+    <text x="218" y="340" font-size="14" fill="#642c3a" font-weight="700">Privacy note</text>
+    <text x="330" y="340" font-size="14" fill="#39252a">Please don't share names, contact details, or sensitive information.</text>
+
+    <text x="214" y="422" font-size="13" fill="#823f4d" letter-spacing="1">YOUR CHAT</text>
+    <text x="884" y="422" font-size="13" fill="#7b6768">Step 3 of 3</text>
+
+    <text x="238" y="489" font-size="13" fill="#823f4d" font-weight="700">CAKEMATCH</text>
+    <text x="238" y="516" font-size="15">What kind of event are you planning?</text>
+    <text x="698" y="580" font-size="15">Birthday</text>
+
+    <text x="238" y="641" font-size="13" fill="#823f4d" font-weight="700">CAKEMATCH</text>
+    <text x="238" y="668" font-size="15">About how many guests will be there?</text>
+    <text x="698" y="732" font-size="15">12 guests</text>
+
+    <text x="238" y="793" font-size="13" fill="#823f4d" font-weight="700">CAKEMATCH</text>
+    <text x="238" y="820" font-size="15">What's your cake budget in MXN?</text>
+    <text x="698" y="884" font-size="15">MXN $1,500</text>
+
+    <text x="244" y="964" font-size="13" fill="#823f4d" letter-spacing="1">YOUR CAKE STARTING POINT</text>
+    <text x="244" y="1005" font-size="27" font-family="Georgia, 'Times New Roman', serif">A simple celebration cake</text>
+    <text x="244" y="1062" font-size="13" fill="#7b6768">PORTION GUIDANCE</text>
+    <text x="510" y="1062" font-size="15">Sized as a starting point for 12 guests</text>
+    <text x="244" y="1124" font-size="13" fill="#7b6768">BUDGET</text>
+    <text x="510" y="1124" font-size="15">MXN $1,500 target · confirm price with a baker</text>
+    <text x="244" y="1210" font-size="12" fill="#7b6768">Illustrative guidance only — not a quote, availability check, or order.</text>
+    <text x="292" y="1168" font-size="14" fill="#fffaf5" font-weight="700">SAVE RESULT</text>
+    <text x="555" y="1168" font-size="13" fill="#642c3a">Was this helpful?</text>
+    <text x="730" y="1168" font-size="16" fill="#642c3a">👍</text>
+    <text x="780" y="1168" font-size="16" fill="#642c3a">👎</text>
+
+    <text x="244" y="1277" font-size="13" fill="#823f4d" letter-spacing="1">NEED A HUMAN CHECKPOINT?</text>
+    <text x="244" y="1310" font-size="15" font-weight="700">Allergies, food safety, exact pricing, and custom details</text>
+    <text x="244" y="1336" font-size="14">need confirmation from a baker. CakeMatch can't verify these details.</text>
+    <text x="244" y="1388" font-size="13" fill="#642c3a" font-weight="700">PREPARE A BAKER BRIEF</text>
+    <text x="525" y="1388" font-size="13" fill="#7b6768">Copy only — not sent to anyone</text>
+    <text x="214" y="1455" font-size="13" fill="#7b6768">Guardrail example: “I can't confirm allergy safety. Please check directly with a baker.”</text>
+
+    <text x="70" y="1520" font-size="13" fill="#7b6768">CakeMatch AI · Guided demo</text>
+    <text x="892" y="1520" font-size="13" fill="#7b6768">Private chat · browser session</text>
+  </g>
+</svg>
