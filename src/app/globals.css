@@ -1958,6 +1958,28 @@ h1 {
   margin-top: 20px;
 }
 
+.ab-demo-label {
+  align-items: flex-start;
+  color: var(--ink-muted);
+  display: flex;
+  font-size: 0.78rem;
+  gap: 10px;
+  line-height: 1.55;
+  margin-top: 18px;
+}
+
+.ab-demo-label input {
+  accent-color: var(--burgundy);
+  flex: 0 0 auto;
+  height: 18px;
+  margin: 1px 0 0;
+  width: 18px;
+}
+
+.ab-demo-label strong {
+  color: var(--burgundy-dark);
+}
+
 .ab-error {
   background: #fff4f2;
   border-left: 3px solid var(--burgundy);
@@ -1984,6 +2006,19 @@ h1 {
   font-weight: 700;
   line-height: 1.5;
   margin: 0 0 16px;
+}
+
+.ab-simulated-badge {
+  background: #fffaf6;
+  border: 1px solid var(--burgundy);
+  color: var(--burgundy-dark);
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  line-height: 1.5;
+  margin: 0 0 14px;
+  padding: 7px 9px;
 }
 
 .ab-rate-grid {

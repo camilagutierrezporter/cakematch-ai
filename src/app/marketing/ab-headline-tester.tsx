@@ -13,10 +13,12 @@ type Comparison = {
   clicksA: string;
   visitorsB: string;
   clicksB: string;
+  isSimulatedDemo: boolean;
   result: {
     rateA: number;
     rateB: number;
     winner: Winner;
+    isSimulatedDemo: boolean;
   } | null;
   error: string;
 };
@@ -39,6 +41,7 @@ const initialComparisons: Comparison[] = [
     clicksA: "",
     visitorsB: "",
     clicksB: "",
+    isSimulatedDemo: false,
     result: null,
     error: "",
   },
@@ -51,6 +54,7 @@ const initialComparisons: Comparison[] = [
     clicksA: "",
     visitorsB: "",
     clicksB: "",
+    isSimulatedDemo: false,
     result: null,
     error: "",
   },
@@ -81,6 +85,16 @@ export default function AbHeadlineTester() {
       current.map((comparison) =>
         comparison.id === comparisonId
           ? { ...comparison, [field]: value, result: null, error: "" }
+          : comparison,
+      ),
+    );
+  }
+
+  function updateSimulationLabel(comparisonId: string, isSimulatedDemo: boolean) {
+    setComparisons((current) =>
+      current.map((comparison) =>
+        comparison.id === comparisonId
+          ? { ...comparison, isSimulatedDemo, result: null, error: "" }
           : comparison,
       ),
     );
@@ -153,6 +167,7 @@ export default function AbHeadlineTester() {
                 rateA: (clicksA.count / visitorsA.count) * 100,
                 rateB: (clicksB.count / visitorsB.count) * 100,
                 winner,
+                isSimulatedDemo: comparison.isSimulatedDemo,
               },
             }
           : item,
@@ -267,6 +282,19 @@ export default function AbHeadlineTester() {
                     );
                   })}
                 </div>
+                <label className="ab-demo-label" htmlFor={`${prefix}-simulated`}>
+                  <input
+                    checked={comparison.isSimulatedDemo}
+                    id={`${prefix}-simulated`}
+                    onChange={(event) =>
+                      updateSimulationLabel(comparison.id, event.target.checked)
+                    }
+                    type="checkbox"
+                  />
+                  <span>
+                    These counts are <strong>SIMULATED DEMO DATA</strong>, not real visitor results.
+                  </span>
+                </label>
 
                 {comparison.error && (
                   <p className="ab-error" id={errorId} role="alert">
@@ -284,6 +312,11 @@ export default function AbHeadlineTester() {
                 >
                   {comparison.result && (
                     <>
+                      {comparison.result.isSimulatedDemo && (
+                        <p className="ab-simulated-badge">
+                          SIMULATED DEMO DATA — NOT REAL VISITOR RESULTS
+                        </p>
+                      )}
                       <p className="ab-result-heading">{winnerText}</p>
                       <dl className="ab-rate-grid">
                         <div>
