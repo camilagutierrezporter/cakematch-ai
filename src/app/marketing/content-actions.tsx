@@ -1,20 +1,28 @@
 "use client";
 
 import { useState } from "react";
+import { useMarketingAssets } from "./marketing-assets";
+import type { MarketingAssetType } from "@/lib/supabase/client";
 
 type ContentActionsProps = {
   content: string;
   filename: string;
   label: string;
+  assetType: MarketingAssetType;
+  assetTitle: string;
 };
 
 export default function ContentActions({
   content,
   filename,
   label,
+  assetType,
+  assetTitle,
 }: ContentActionsProps) {
   const [feedback, setFeedback] = useState("");
   const [feedbackType, setFeedbackType] = useState<"success" | "error">("success");
+  const [isSaving, setIsSaving] = useState(false);
+  const { isAuthenticated, saveAsset } = useMarketingAssets();
 
   async function copyContent() {
     try {
@@ -62,6 +70,30 @@ export default function ContentActions({
     }
   }
 
+  async function saveContent() {
+    setIsSaving(true);
+    setFeedback("");
+
+    try {
+      await saveAsset({
+        asset_type: assetType,
+        title: assetTitle,
+        content,
+      });
+      setFeedback(`${label} saved to your private assets.`);
+      setFeedbackType("success");
+    } catch (error) {
+      setFeedback(
+        error instanceof Error
+          ? error.message
+          : `Could not save ${label.toLowerCase()}. Please try again.`,
+      );
+      setFeedbackType("error");
+    } finally {
+      setIsSaving(false);
+    }
+  }
+
   return (
     <div className="content-actions">
       <div
@@ -84,6 +116,15 @@ export default function ContentActions({
           aria-label={`Export ${label} as a text file`}
         >
           Export .txt
+        </button>
+        <button
+          className="content-action-button content-save-button"
+          type="button"
+          disabled={isSaving}
+          onClick={saveContent}
+          aria-label={`Save ${label} to your private marketing assets`}
+        >
+          {isSaving ? "Saving…" : isAuthenticated ? "Save" : "Sign in to save"}
         </button>
       </div>
       <p

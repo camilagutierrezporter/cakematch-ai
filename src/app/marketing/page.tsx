@@ -1,6 +1,7 @@
 import Link from "next/link";
 import AbHeadlineTester from "./ab-headline-tester";
 import ContentActions from "./content-actions";
+import MarketingAssetsProvider from "./marketing-assets";
 
 const socialPosts = [
   {
@@ -244,6 +245,7 @@ export default function MarketingPage() {
         </div>
       </nav>
 
+      <MarketingAssetsProvider>
       <div className="marketing-page">
         <header className="marketing-intro">
           <p className="eyebrow">Marketing studio · Week 4</p>
@@ -354,6 +356,8 @@ export default function MarketingPage() {
               content={landingPageCopy}
               filename="cakematch-landing-page-copy.txt"
               label="Landing page copy"
+              assetType="landing_copy"
+              assetTitle="Landing page copy"
             />
           </article>
         </section>
@@ -378,6 +382,8 @@ export default function MarketingPage() {
                   content={formatSocialPost(post)}
                   filename={`cakematch-social-post-${post.number}.txt`}
                   label={`Social post ${post.number}`}
+                  assetType="social_post"
+                  assetTitle={`Social post ${post.number}: ${post.theme}`}
                 />
               </article>
             ))}
@@ -410,6 +416,8 @@ export default function MarketingPage() {
                   content={formatVideoScript(script)}
                   filename={`cakematch-video-script-${script.number}.txt`}
                   label={`Video script ${script.number}`}
+                  assetType="video_script"
+                  assetTitle={`Video script ${script.number}: ${script.title}`}
                 />
               </article>
             ))}
@@ -439,11 +447,14 @@ export default function MarketingPage() {
             content={campaignCalendarCopy}
             filename="cakematch-14-day-campaign-calendar.txt"
             label="Complete 14-day campaign calendar"
+            assetType="campaign_calendar"
+            assetTitle="Complete 14-day campaign calendar"
           />
         </section>
 
         <AbHeadlineTester />
       </div>
+      </MarketingAssetsProvider>
 
       <footer className="site-footer">
         <p>CakeMatch AI — Project created by Camila Gutiérrez</p>

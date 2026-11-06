@@ -62,6 +62,21 @@ export type PricingScenarioRow = {
   annual_revenue: number;
 };
 
+export type MarketingAssetType =
+  | "landing_copy"
+  | "social_post"
+  | "video_script"
+  | "campaign_calendar";
+
+export type MarketingAssetRow = {
+  id: string;
+  user_id: string;
+  created_at: string;
+  asset_type: MarketingAssetType;
+  title: string;
+  content: string;
+};
+
 type Database = {
   public: {
     Tables: {
@@ -81,6 +96,12 @@ type Database = {
         Row: PricingScenarioRow;
         Insert: Omit<PricingScenarioRow, "id" | "created_at">;
         Update: Partial<Omit<PricingScenarioRow, "id" | "created_at">>;
+        Relationships: [];
+      };
+      marketing_assets: {
+        Row: MarketingAssetRow;
+        Insert: Omit<MarketingAssetRow, "id" | "created_at">;
+        Update: Partial<Omit<MarketingAssetRow, "id" | "created_at">>;
         Relationships: [];
       };
     };
