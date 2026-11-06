@@ -15,22 +15,25 @@ export default function Home() {
           <Link href="/pricing">Pricing</Link>
           <Link href="/research">Research</Link>
           <Link href="/docs">Documentation</Link>
+          <Link href="/marketing">Marketing</Link>
         </div>
       </nav>
 
-      <section className="hero" id="inicio">
+      <section className="hero" id="inicio" aria-labelledby="home-title">
         <div className="hero-copy">
-          <p className="eyebrow">Design unforgettable moments</p>
-          <h1>Your perfect cake or cupcakes, in minutes</h1>
+          <p className="eyebrow">A sweeter way to plan your celebration</p>
+          <h1 id="home-title">Find the right cake for your celebration.</h1>
           <p className="hero-description">
-            CakeMatch AI will help you find the right cake or cupcake quantity, flavor, and design for every celebration.
+            CakeMatch AI turns your occasion, guest count, flavor, style, and
+            budget into a thoughtful cake or cupcake recommendation, so dessert
+            planning feels simple.
           </p>
           <div className="hero-actions">
             <Link className="primary-button" href="/core">
-              Plan My Dessert
+              Create My Recommendation
             </Link>
-            <Link className="text-link" href="#como-funciona">
-              See How It Works <span aria-hidden="true">↗</span>
+            <Link className="text-link" href="#who-its-for">
+              Who It&apos;s For <span aria-hidden="true">↗</span>
             </Link>
           </div>
         </div>
@@ -46,6 +49,37 @@ export default function Home() {
           </div>
           <div className="sparkle sparkle-one">✦</div>
           <div className="sparkle sparkle-two">✧</div>
+        </div>
+      </section>
+
+      <section
+        className="audiences"
+        id="who-its-for"
+        aria-labelledby="audiences-title"
+      >
+        <div className="audiences-heading">
+          <p className="eyebrow">Made for every side of the celebration</p>
+          <h2 id="audiences-title">A thoughtful match starts with you.</h2>
+        </div>
+        <div className="audience-grid">
+          <article className="audience-card">
+            <p className="audience-label">For celebration planners</p>
+            <h3>Make the dessert decision feel easy.</h3>
+            <p>
+              Whether it&apos;s a birthday or a once-in-a-lifetime gathering,
+              get a recommendation shaped around your occasion, guests, and
+              preferences.
+            </p>
+          </article>
+          <article className="audience-card audience-card-bakery">
+            <p className="audience-label">For independent bakeries</p>
+            <h3>Bring your craft to more celebrations.</h3>
+            <p>
+              Independent bakeries make meaningful moments sweeter. CakeMatch
+              AI is exploring ways to help local bakers connect with people
+              looking for something special.
+            </p>
+          </article>
         </div>
       </section>
 
