@@ -1,5 +1,6 @@
 import Link from "next/link";
 import AbHeadlineTester from "./ab-headline-tester";
+import ContentActions from "./content-actions";
 
 const socialPosts = [
   {
@@ -175,6 +176,59 @@ const campaignDays = [
   { day: 14, channel: "Instagram + Facebook", format: "Campaign recap", focus: "Bring the celebration together", content: "Recap two weeks of cake ideas, planning tips, and bakery appreciation, then restate how CakeMatch AI helps turn preferences into a starting recommendation.", action: "Start planning at CakeMatch AI." },
 ];
 
+const landingPageCopy = [
+  "HEADLINE",
+  "Find the right cake for your celebration.",
+  "",
+  "DESCRIPTION",
+  "Tell CakeMatch AI what you're celebrating, how many guests you're welcoming, and the flavor, style, and budget you have in mind. Get a thoughtful cake or cupcake recommendation to make dessert planning feel simple.",
+  "",
+  "CALL TO ACTION",
+  "Create My Recommendation",
+].join("\n");
+
+function formatSocialPost(post: (typeof socialPosts)[number]) {
+  return [
+    `CAKEMATCH AI — SOCIAL MEDIA POST ${post.number}`,
+    `Platform and format: ${post.channel}`,
+    `Theme: ${post.theme}`,
+    "",
+    "POST COPY",
+    post.caption,
+    "",
+    "CALL TO ACTION",
+    post.action,
+  ].join("\n");
+}
+
+function formatVideoScript(script: (typeof videoScripts)[number]) {
+  return [
+    `CAKEMATCH AI — VIDEO SCRIPT ${script.number}`,
+    `Title: ${script.title}`,
+    `Duration: ${script.duration}`,
+    "",
+    ...script.scenes.flatMap((scene, index) => [
+      `SCENE ${index + 1} · ${scene.time}`,
+      `Visual: ${scene.visual}`,
+      `Voiceover: ${scene.audio}`,
+      "",
+    ]),
+  ].join("\n").trimEnd();
+}
+
+const campaignCalendarCopy = [
+  "CAKEMATCH AI — 14-DAY CAMPAIGN CALENDAR",
+  "",
+  ...campaignDays.flatMap((item) => [
+    `DAY ${String(item.day).padStart(2, "0")} · ${item.focus}`,
+    `Channel: ${item.channel}`,
+    `Format: ${item.format}`,
+    `Content: ${item.content}`,
+    `Call to action: ${item.action}`,
+    "",
+  ]),
+].join("\n").trimEnd();
+
 export default function MarketingPage() {
   return (
     <main>
@@ -296,6 +350,11 @@ export default function MarketingPage() {
               dessert planning feel simple.
             </p>
             <Link className="primary-button" href="/core">Create My Recommendation</Link>
+            <ContentActions
+              content={landingPageCopy}
+              filename="cakematch-landing-page-copy.txt"
+              label="Landing page copy"
+            />
           </article>
         </section>
 
@@ -315,6 +374,11 @@ export default function MarketingPage() {
                 <h3>{post.theme}</h3>
                 <p>{post.caption}</p>
                 <p className="post-action"><strong>Close with:</strong> {post.action}</p>
+                <ContentActions
+                  content={formatSocialPost(post)}
+                  filename={`cakematch-social-post-${post.number}.txt`}
+                  label={`Social post ${post.number}`}
+                />
               </article>
             ))}
           </div>
@@ -342,6 +406,11 @@ export default function MarketingPage() {
                     </li>
                   ))}
                 </ol>
+                <ContentActions
+                  content={formatVideoScript(script)}
+                  filename={`cakematch-video-script-${script.number}.txt`}
+                  label={`Video script ${script.number}`}
+                />
               </article>
             ))}
           </div>
@@ -366,6 +435,11 @@ export default function MarketingPage() {
               </li>
             ))}
           </ol>
+          <ContentActions
+            content={campaignCalendarCopy}
+            filename="cakematch-14-day-campaign-calendar.txt"
+            label="Complete 14-day campaign calendar"
+          />
         </section>
 
         <AbHeadlineTester />
