@@ -1,74 +1,136 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1540" viewBox="0 0 1200 1540" role="img" aria-labelledby="title description">
-  <title id="title">CakeMatch AI Week 5 chat wireframe</title>
-  <desc id="description">A clean chat page wireframe showing event type, guest count, and MXN budget questions; a cake recommendation with save and thumbs feedback; and a safety guardrail with a copyable, unsent baker brief.</desc>
-  <rect width="1200" height="1540" fill="#fbf3ed"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1840" viewBox="0 0 1200 1840" role="img" aria-labelledby="title description">
+  <title id="title">CakeMatch AI Cake Design Assistant wireframe</title>
+  <desc id="description">A chat page with three creative intake questions, a personalized cake design idea, a guardrail, human checkpoint, save action, and thumbs feedback.</desc>
+  <defs>
+    <style>
+      .page { fill: #fbf3ed; }
+      .panel { fill: #fffaf6; stroke: #e3ccc9; stroke-width: 2; }
+      .soft { fill: #f5dfda; stroke: #e3ccc9; stroke-width: 2; }
+      .choice { fill: #fffaf6; stroke: #c98e91; stroke-width: 2; }
+      .assistant { fill: #fffaf6; stroke: #e3ccc9; stroke-width: 2; }
+      .user { fill: #f5dfda; stroke: #e8b9b5; stroke-width: 2; }
+      .ink { fill: #39252a; font-family: Arial, Helvetica, sans-serif; }
+      .muted { fill: #7b6768; font-family: Arial, Helvetica, sans-serif; }
+      .brand { fill: #642c3a; font-family: Arial, Helvetica, sans-serif; font-weight: 700; }
+      .eyebrow { fill: #823f4d; font-family: Arial, Helvetica, sans-serif; font-size: 15px; font-weight: 700; letter-spacing: 2px; }
+      .heading { fill: #39252a; font-family: Georgia, 'Times New Roman', serif; font-size: 46px; }
+      .subheading { fill: #39252a; font-family: Georgia, 'Times New Roman', serif; font-size: 25px; }
+      .body { fill: #39252a; font-family: Arial, Helvetica, sans-serif; font-size: 17px; }
+      .small { fill: #7b6768; font-family: Arial, Helvetica, sans-serif; font-size: 14px; }
+      .button { fill: #fffaf6; stroke: #e3ccc9; stroke-width: 2; }
+      .primary { fill: #823f4d; }
+      .buttonText { fill: #642c3a; font-family: Arial, Helvetica, sans-serif; font-size: 15px; font-weight: 700; }
+      .primaryText { fill: #fffaf5; font-family: Arial, Helvetica, sans-serif; font-size: 16px; font-weight: 700; }
+      .sender { fill: #823f4d; font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 1.4px; }
+    </style>
+  </defs>
 
-  <g fill="none" stroke="#e3ccc9" stroke-width="2">
-    <path d="M70 112H1130"/>
-    <rect x="150" y="286" width="900" height="1190" rx="8" fill="#fffaf6"/>
-    <rect x="190" y="316" width="820" height="56" rx="4" fill="#f5dfda"/>
-    <rect x="190" y="393" width="820" height="46" rx="4"/>
-    <rect x="214" y="460" width="590" height="76" rx="14" fill="#fbf3ed"/>
-    <rect x="674" y="548" width="300" height="52" rx="14" fill="#f5dfda" stroke="#e8b9b5"/>
-    <rect x="214" y="612" width="590" height="76" rx="14" fill="#fbf3ed"/>
-    <rect x="674" y="700" width="300" height="52" rx="14" fill="#f5dfda" stroke="#e8b9b5"/>
-    <rect x="214" y="764" width="590" height="76" rx="14" fill="#fbf3ed"/>
-    <rect x="674" y="852" width="300" height="52" rx="14" fill="#f5dfda" stroke="#e8b9b5"/>
-    <rect x="214" y="924" width="760" height="292" rx="6" fill="#fffaf6" stroke="#823f4d"/>
-    <path d="M244 1032H944M244 1094H944" stroke="#e3ccc9"/>
-    <rect x="244" y="1138" width="280" height="48" rx="3" fill="#823f4d" stroke="#823f4d"/>
-    <rect x="214" y="1240" width="760" height="190" rx="6" fill="#f5dfda" stroke="#e8b9b5"/>
-    <rect x="244" y="1360" width="250" height="44" rx="3" fill="#fffaf6" stroke="#823f4d"/>
-    <rect x="505" y="1360" width="150" height="44" rx="3" fill="#fffaf6" stroke="#e3ccc9"/>
-    <path d="M70 1500H1130"/>
-  </g>
+  <rect class="page" width="1200" height="1840"/>
+  <text class="brand" x="90" y="58" font-size="21">CakeMatch <tspan fill="#823f4d">AI</tspan></text>
+  <text class="small" x="790" y="57">Home</text>
+  <text class="small" x="875" y="57">Core</text>
+  <text class="brand" x="945" y="57">Chat</text>
+  <text class="small" x="1010" y="57">Documentation</text>
+  <line x1="90" y1="88" x2="1110" y2="88" stroke="#e3ccc9" stroke-width="2"/>
 
-  <g fill="#39252a" font-family="Arial, Helvetica, sans-serif">
-    <text x="70" y="78" font-size="28" font-weight="700">CakeMatch <tspan fill="#823f4d">AI</tspan></text>
-    <text x="800" y="78" font-size="14" fill="#7b6768">Home   How It Works   Core   Chat</text>
+  <text class="eyebrow" x="120" y="148">A GUIDED CAKE DESIGN CHAT</text>
+  <text class="heading" x="120" y="205">Imagine a cake that feels like you.</text>
+  <text class="muted" x="120" y="237" font-size="17">Choose a feeling, a unique detail, and a source of inspiration.</text>
 
-    <text x="150" y="174" font-size="13" fill="#823f4d" letter-spacing="2">A GUIDED CAKE CHAT</text>
-    <text x="150" y="218" font-size="36" font-family="Georgia, 'Times New Roman', serif">Let's plan something sweet.</text>
-    <text x="150" y="250" font-size="15" fill="#7b6768">A simple starting point for your celebration. No orders or bakery quotes here.</text>
+  <rect class="panel" x="120" y="270" width="960" height="1485"/>
+  <rect class="soft" x="150" y="295" width="900" height="58"/>
+  <text class="brand" x="172" y="321" font-size="14">PRIVACY NOTE</text>
+  <text class="small" x="172" y="341">Saved privately in this browser. Clearing browser data may lose the chat. Don’t share sensitive details.</text>
 
-    <text x="218" y="340" font-size="14" fill="#642c3a" font-weight="700">Privacy note</text>
-    <text x="330" y="340" font-size="14" fill="#39252a">Please don't share names, contact details, or sensitive information.</text>
+  <rect class="assistant" x="150" y="377" width="580" height="58" rx="12"/>
+  <text class="sender" x="170" y="398">CAKEMATCH</text>
+  <text class="body" x="170" y="422">Hi! I can help you shape a cake design idea.</text>
 
-    <text x="214" y="422" font-size="13" fill="#823f4d" letter-spacing="1">YOUR CHAT</text>
-    <text x="884" y="422" font-size="13" fill="#7b6768">Step 3 of 3</text>
+  <rect class="assistant" x="150" y="452" width="900" height="154" rx="12"/>
+  <text class="sender" x="172" y="476">QUESTION 1 OF 3</text>
+  <text class="subheading" x="172" y="508">What feeling do you want your cake to create?</text>
+  <rect class="choice" x="172" y="526" width="145" height="46" rx="3"/>
+  <text class="buttonText" x="196" y="555">Romantic</text>
+  <rect class="choice" x="330" y="526" width="120" height="46" rx="3"/>
+  <text class="buttonText" x="369" y="555">Fun</text>
+  <rect class="choice" x="463" y="526" width="145" height="46" rx="3"/>
+  <text class="buttonText" x="484" y="555">Luxurious</text>
+  <rect class="choice" x="621" y="526" width="145" height="46" rx="3"/>
+  <text class="buttonText" x="642" y="555">Nostalgic</text>
+  <rect class="choice" x="779" y="526" width="145" height="46" rx="3"/>
+  <text class="buttonText" x="801" y="555">Surprising</text>
 
-    <text x="238" y="489" font-size="13" fill="#823f4d" font-weight="700">CAKEMATCH</text>
-    <text x="238" y="516" font-size="15">What kind of event are you planning?</text>
-    <text x="698" y="580" font-size="15">Birthday</text>
+  <rect class="user" x="815" y="617" width="235" height="48" rx="12"/>
+  <text class="sender" x="835" y="637">YOU</text>
+  <text class="body" x="835" y="657">Romantic</text>
 
-    <text x="238" y="641" font-size="13" fill="#823f4d" font-weight="700">CAKEMATCH</text>
-    <text x="238" y="668" font-size="15">About how many guests will be there?</text>
-    <text x="698" y="732" font-size="15">12 guests</text>
+  <rect class="assistant" x="150" y="678" width="900" height="154" rx="12"/>
+  <text class="sender" x="172" y="702">QUESTION 2 OF 3</text>
+  <text class="subheading" x="172" y="734">What would you like to make your cake unique?</text>
+  <rect class="choice" x="172" y="752" width="175" height="46" rx="3"/>
+  <text class="buttonText" x="190" y="781">Personal details</text>
+  <rect class="choice" x="360" y="752" width="120" height="46" rx="3"/>
+  <text class="buttonText" x="396" y="781">Flowers</text>
+  <rect class="choice" x="493" y="752" width="120" height="46" rx="3"/>
+  <text class="buttonText" x="525" y="781">Textures</text>
+  <rect class="choice" x="626" y="752" width="190" height="46" rx="3"/>
+  <text class="buttonText" x="642" y="781">Special decorations</text>
+  <rect class="choice" x="829" y="752" width="190" height="46" rx="3"/>
+  <text class="buttonText" x="845" y="781">Creative shape</text>
 
-    <text x="238" y="793" font-size="13" fill="#823f4d" font-weight="700">CAKEMATCH</text>
-    <text x="238" y="820" font-size="15">What's your cake budget in MXN?</text>
-    <text x="698" y="884" font-size="15">MXN $1,500</text>
+  <rect class="user" x="815" y="843" width="235" height="48" rx="12"/>
+  <text class="sender" x="835" y="863">YOU</text>
+  <text class="body" x="835" y="883">Flowers</text>
 
-    <text x="244" y="964" font-size="13" fill="#823f4d" letter-spacing="1">YOUR CAKE STARTING POINT</text>
-    <text x="244" y="1005" font-size="27" font-family="Georgia, 'Times New Roman', serif">A simple celebration cake</text>
-    <text x="244" y="1062" font-size="13" fill="#7b6768">PORTION GUIDANCE</text>
-    <text x="510" y="1062" font-size="15">Sized as a starting point for 12 guests</text>
-    <text x="244" y="1124" font-size="13" fill="#7b6768">BUDGET</text>
-    <text x="510" y="1124" font-size="15">MXN $1,500 target · confirm price with a baker</text>
-    <text x="244" y="1210" font-size="12" fill="#7b6768">Illustrative guidance only — not a quote, availability check, or order.</text>
-    <text x="292" y="1168" font-size="14" fill="#fffaf5" font-weight="700">SAVE RESULT</text>
-    <text x="555" y="1168" font-size="13" fill="#642c3a">Was this helpful?</text>
-    <text x="730" y="1168" font-size="16" fill="#642c3a">👍</text>
-    <text x="780" y="1168" font-size="16" fill="#642c3a">👎</text>
+  <rect class="assistant" x="150" y="904" width="900" height="154" rx="12"/>
+  <text class="sender" x="172" y="928">QUESTION 3 OF 3</text>
+  <text class="subheading" x="172" y="960">Where would you like to find inspiration for your cake?</text>
+  <rect class="choice" x="172" y="978" width="170" height="46" rx="3"/>
+  <text class="buttonText" x="191" y="1007">Pinterest idea</text>
+  <rect class="choice" x="355" y="978" width="210" height="46" rx="3"/>
+  <text class="buttonText" x="372" y="1007">Favorite color palette</text>
+  <rect class="choice" x="578" y="978" width="170" height="46" rx="3"/>
+  <text class="buttonText" x="596" y="1007">Personal memory</text>
+  <rect class="choice" x="761" y="978" width="170" height="46" rx="3"/>
+  <text class="buttonText" x="781" y="1007">Special theme</text>
 
-    <text x="244" y="1277" font-size="13" fill="#823f4d" letter-spacing="1">NEED A HUMAN CHECKPOINT?</text>
-    <text x="244" y="1310" font-size="15" font-weight="700">Allergies, food safety, exact pricing, and custom details</text>
-    <text x="244" y="1336" font-size="14">need confirmation from a baker. CakeMatch can't verify these details.</text>
-    <text x="244" y="1388" font-size="13" fill="#642c3a" font-weight="700">PREPARE A BAKER BRIEF</text>
-    <text x="525" y="1388" font-size="13" fill="#7b6768">Copy only — not sent to anyone</text>
-    <text x="214" y="1455" font-size="13" fill="#7b6768">Guardrail example: “I can't confirm allergy safety. Please check directly with a baker.”</text>
+  <rect class="user" x="815" y="1069" width="235" height="48" rx="12"/>
+  <text class="sender" x="835" y="1089">YOU</text>
+  <text class="body" x="835" y="1109">Personal memory</text>
 
-    <text x="70" y="1520" font-size="13" fill="#7b6768">CakeMatch AI · Guided demo</text>
-    <text x="892" y="1520" font-size="13" fill="#7b6768">Private chat · browser session</text>
-  </g>
+  <rect class="soft" x="150" y="1132" width="900" height="215"/>
+  <text class="eyebrow" x="178" y="1164">YOUR PERSONALIZED CAKE DESIGN</text>
+  <text class="subheading" x="178" y="1201">A romantic cake with flowers</text>
+  <text class="body" x="178" y="1232">Let your personal memory guide the colors and small details.</text>
+  <text class="body" x="178" y="1261">Keep a floral focal point and soft, romantic lines to connect the mood</text>
+  <text class="body" x="178" y="1286">with your inspiration. A cake designer can adapt this starting idea.</text>
+  <rect class="button" x="178" y="1301" width="190" height="36" rx="3"/>
+  <text class="buttonText" x="200" y="1324">Copy design brief</text>
+
+  <rect class="assistant" x="150" y="1367" width="900" height="174"/>
+  <text class="subheading" x="178" y="1404">Need a next step?</text>
+  <text class="small" x="178" y="1431">For allergies, feasibility, prices, availability, and orders, ask a cake designer directly.</text>
+  <rect class="choice" x="178" y="1450" width="190" height="42" rx="3"/>
+  <text class="buttonText" x="192" y="1477">Allergies or safety</text>
+  <rect class="choice" x="379" y="1450" width="206" height="42" rx="3"/>
+  <text class="buttonText" x="395" y="1477">Can this be made?</text>
+  <rect class="choice" x="596" y="1450" width="153" height="42" rx="3"/>
+  <text class="buttonText" x="615" y="1477">Price or quote</text>
+  <rect class="choice" x="760" y="1450" width="166" height="42" rx="3"/>
+  <text class="buttonText" x="777" y="1477">Availability</text>
+  <text class="small" x="178" y="1522">Also available: Place an order · Something else</text>
+
+  <rect class="soft" x="150" y="1560" width="900" height="82"/>
+  <text class="brand" x="178" y="1591" font-size="14">HUMAN CHECKPOINT</text>
+  <text class="small" x="178" y="1618">Starting idea only — confirm ingredients, allergy precautions, feasibility, price, and availability with a baker.</text>
+
+  <rect class="primary" x="150" y="1663" width="180" height="54" rx="2"/>
+  <text class="primaryText" x="191" y="1697">Save design</text>
+  <text class="small" x="350" y="1685">Was this design idea helpful?</text>
+  <rect class="button" x="575" y="1663" width="110" height="48" rx="2"/>
+  <text class="buttonText" x="593" y="1693">👍 Yes</text>
+  <rect class="button" x="700" y="1663" width="110" height="48" rx="2"/>
+  <text class="buttonText" x="718" y="1693">👎 No</text>
+  <text class="small" x="150" y="1788">CakeMatch AI — Project created by Camila Gutiérrez</text>
+  <text class="small" x="950" y="1788">AI-Native Builder 2026</text>
 </svg>
