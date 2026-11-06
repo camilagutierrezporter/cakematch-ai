@@ -44,6 +44,15 @@ export function createDesignDescription(answers: {
   inspiration: CakeInspirationSource;
 }): string;
 
+export function createDesignVariation(
+  answers: {
+    feeling: DesignFeeling;
+    uniqueDetail: UniqueCakeDetail;
+    inspiration: CakeInspirationSource;
+  },
+  currentDescription: string,
+): string;
+
 export function getGuardrailResponse(category: DesignGuardrailCategory): string;
 
 export function createDesignBrief(design: {

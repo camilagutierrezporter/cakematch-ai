@@ -5,6 +5,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import {
   createDesignBrief,
   createDesignDescription,
+  createDesignVariation,
   DESIGN_FEELINGS,
   getGuardrailResponse,
   GUARDRAIL_CATEGORIES,
@@ -116,6 +117,7 @@ export default function ChatPage() {
   const [step, setStep] = useState<IntakeStep>(0);
   const [selection, setSelection] = useState<DesignSelection>(emptySelection);
   const [designDescription, setDesignDescription] = useState("");
+  const [variationPreview, setVariationPreview] = useState<string | null>(null);
   const [guardrailCategories, setGuardrailCategories] = useState<DesignGuardrailCategory[]>([]);
   const [sessionId, setSessionId] = useState<string | null>(null);
   const [ownerId, setOwnerId] = useState<string | null>(null);
@@ -306,11 +308,57 @@ export default function ChatPage() {
     }));
     if (targetStep === 0) setSelection(emptySelection);
     setDesignDescription("");
+    setVariationPreview(null);
     setGuardrailCategories([]);
     setStep(targetStep);
     setHasUnsavedChanges(true);
     setHasDesignChanged(true);
     setNotice("Choose your updated answer, then save the design.");
+  }
+
+  function tryAnotherDesign() {
+    if (!selection.feeling || !selection.uniqueDetail || !selection.inspiration) return;
+    setNotice("");
+    setVariationPreview(createDesignVariation({
+      feeling: selection.feeling,
+      uniqueDetail: selection.uniqueDetail,
+      inspiration: selection.inspiration,
+    }, variationPreview ?? designDescription));
+  }
+
+  function chooseVariation() {
+    if (!variationPreview) return;
+
+    const chosenDescription = variationPreview;
+    setDesignDescription(chosenDescription);
+    setMessages((currentMessages) => {
+      let latestDesignIndex = -1;
+      currentMessages.forEach((message, index) => {
+        if (message.role === "assistant" && message.message_type === "design") {
+          latestDesignIndex = index;
+        }
+      });
+
+      if (latestDesignIndex < 0) {
+        return [
+          ...currentMessages,
+          {
+            id: currentMessages.length,
+            role: "assistant",
+            message_type: "design",
+            content: chosenDescription,
+          },
+        ];
+      }
+
+      return currentMessages.map((message, index) =>
+        index === latestDesignIndex ? { ...message, content: chosenDescription } : message,
+      );
+    });
+    setVariationPreview(null);
+    setHasUnsavedChanges(true);
+    setHasDesignChanged(true);
+    setNotice("New variation selected. Save to replace your saved design.");
   }
 
   async function saveDesign() {
@@ -435,6 +483,7 @@ export default function ChatPage() {
     setStep(0);
     setSelection(emptySelection);
     setDesignDescription("");
+    setVariationPreview(null);
     setGuardrailCategories([]);
     setSessionId(null);
     setFeedback(null);
@@ -574,6 +623,28 @@ export default function ChatPage() {
                 <h2 id="design-result-title">{selection.feeling} • {selection.uniqueDetail}</h2>
                 <p className="chat-result-inspiration">Inspired by: {selection.inspiration}</p>
                 <p className="chat-result-description">{designDescription}</p>
+                <button className="chat-reset-button" type="button" onClick={tryAnotherDesign}>
+                  Try another design
+                </button>
+                {variationPreview ? (
+                  <section className="chat-variation-preview" aria-labelledby="variation-preview-title">
+                    <p className="eyebrow">Alternative concept preview</p>
+                    <h3 id="variation-preview-title">Another idea using your same answers</h3>
+                    <p className="chat-result-description">{variationPreview}</p>
+                    <div className="chat-variation-actions">
+                      <button className="primary-button" type="button" onClick={chooseVariation}>
+                        Use this version
+                      </button>
+                      <button
+                        className="chat-reset-button"
+                        type="button"
+                        onClick={() => setVariationPreview(null)}
+                      >
+                        Keep current design
+                      </button>
+                    </div>
+                  </section>
+                ) : null}
                 <button className="chat-reset-button" type="button" onClick={copyDesignBrief}>
                   Copy design brief
                 </button>

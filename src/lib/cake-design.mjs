@@ -88,6 +88,37 @@ export function createDesignDescription(answers) {
 }
 
 /**
+ * @param {{ feeling: string, uniqueDetail: string, inspiration: string }} answers
+ * @param {string} currentDescription
+ */
+export function createDesignVariation(answers, currentDescription) {
+  const { feeling, uniqueDetail, inspiration } = answers;
+
+  if (!DESIGN_FEELINGS.includes(feeling)) {
+    throw new TypeError("Choose a supported cake feeling.");
+  }
+  if (!UNIQUE_DETAILS.includes(uniqueDetail)) {
+    throw new TypeError("Choose a supported unique cake detail.");
+  }
+  if (!INSPIRATION_SOURCES.includes(inspiration)) {
+    throw new TypeError("Choose a supported inspiration source.");
+  }
+
+  const variations = [
+    `Imagine a ${feeling.toLowerCase()} cake shaped by ${inspirationDescriptions[inspiration]}. Make ${uniqueDetail.toLowerCase()} the focal point, using ${feelingDescriptions[feeling]} to guide the overall look. This is a starting concept for a cake designer to adapt.`,
+    `For a ${feeling.toLowerCase()} mood, begin with colors and fine details inspired by ${inspirationDescriptions[inspiration]}. Bring ${uniqueDetail.toLowerCase()} forward and balance it with ${feelingDescriptions[feeling]}. A cake designer can adapt this concept.`,
+    `A ${feeling.toLowerCase()} cake concept can connect ${inspirationDescriptions[inspiration]} with ${uniqueDetail.toLowerCase()}. Keep the focus on ${feelingDescriptions[feeling]} for a different visual direction. A cake designer can adapt this starting idea.`,
+  ];
+  const originalDescription = createDesignDescription(answers);
+  const currentVariationIndex = variations.indexOf(currentDescription);
+  const currentIndex = currentDescription === originalDescription
+    ? -1
+    : currentVariationIndex;
+
+  return variations[(currentIndex + 1) % variations.length];
+}
+
+/**
  * @param {string} category
  */
 export function getGuardrailResponse(category) {

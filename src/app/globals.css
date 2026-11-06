@@ -1535,6 +1535,38 @@ h1 {
   max-width: 760px;
 }
 
+.chat-variation-preview {
+  background: var(--blush-light);
+  border: 1px solid var(--blush);
+  display: grid;
+  gap: 12px;
+  margin-top: 20px;
+  padding: clamp(18px, 3vw, 26px);
+}
+
+.chat-variation-preview .eyebrow {
+  margin: 0;
+}
+
+.chat-variation-preview h3 {
+  color: var(--burgundy-dark);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin: 0;
+}
+
+.chat-variation-actions {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.chat-variation-actions .chat-reset-button {
+  margin-top: 0;
+}
+
 .chat-guardrail {
   border-top: 1px solid var(--line);
   padding-top: 22px;

@@ -3,6 +3,7 @@ import test from "node:test";
 import {
   createDesignBrief,
   createDesignDescription,
+  createDesignVariation,
   DESIGN_FEELINGS,
   getGuardrailResponse,
   GUARDRAIL_CATEGORIES,
@@ -51,6 +52,50 @@ test("design response logic: rejects values outside the approved option sets", (
     uniqueDetail: "Textures",
     inspiration: "A random image",
   }), /supported inspiration source/);
+});
+
+test("design variation logic: creates a different deterministic concept from the same three answers", () => {
+  const answers = {
+    feeling: "Romantic",
+    uniqueDetail: "Flowers",
+    inspiration: "Personal memory",
+  };
+  const original = createDesignDescription(answers);
+  const variation = createDesignVariation(answers, original);
+
+  assert.notEqual(variation, original);
+  assert.equal(createDesignVariation(answers, original), variation);
+  assert.match(variation.toLowerCase(), /romantic/);
+  assert.match(variation.toLowerCase(), /flowers/);
+  assert.match(variation.toLowerCase(), /personal memory/);
+});
+
+test("design variation logic: offers multiple choices and cycles without returning the current design", () => {
+  const answers = {
+    feeling: "Fun",
+    uniqueDetail: "Creative shape",
+    inspiration: "Special theme",
+  };
+  const first = createDesignVariation(answers, createDesignDescription(answers));
+  const second = createDesignVariation(answers, first);
+  const third = createDesignVariation(answers, second);
+  const next = createDesignVariation(answers, third);
+
+  assert.notEqual(first, second);
+  assert.notEqual(second, third);
+  assert.notEqual(third, first);
+  assert.equal(next, first);
+  assert.match(first.toLowerCase(), /fun/);
+  assert.match(first.toLowerCase(), /creative shape/);
+  assert.match(first.toLowerCase(), /special theme/);
+});
+
+test("design variation logic: rejects values outside the approved option sets", () => {
+  assert.throws(() => createDesignVariation({
+    feeling: "Calm",
+    uniqueDetail: "Flowers",
+    inspiration: "Personal memory",
+  }, "Current idea"), /supported cake feeling/);
 });
 
 test("guardrail logic: every supported follow-up has a human confirmation response", () => {
