@@ -216,15 +216,7 @@ export default function PricingPage() {
 
   return (
     <main>
-      <nav className="site-nav" aria-label="Main navigation">
-        <Link className="brand" href="/">CakeMatch <span>AI</span></Link>
-        <div className="nav-links">
-          <Link href="/product">Product</Link>
-          <Link href="/pricing" aria-current="page">Pricing</Link>
-          <Link href="/core">Plan an event</Link>
-          <Link href="/research">Research</Link>
-        </div>
-      </nav>
+      
 
       <section className="pricing-page" aria-labelledby="pricing-title">
         <div className="pricing-intro">

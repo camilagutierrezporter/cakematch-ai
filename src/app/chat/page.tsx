@@ -513,17 +513,7 @@ export default function ChatPage() {
 
   return (
     <main>
-      <nav className="site-nav" aria-label="Main navigation">
-        <Link className="brand" href="/">
-          CakeMatch <span>AI</span>
-        </Link>
-        <div className="nav-links">
-          <Link href="/">Home</Link>
-          <Link href="/core">Core</Link>
-          <Link href="/chat" aria-current="page">Chat</Link>
-          <Link href="/docs">Documentation</Link>
-        </div>
-      </nav>
+      
 
       <section className="chat-page" aria-labelledby="chat-title">
         <header className="chat-intro">

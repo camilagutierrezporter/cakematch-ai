@@ -286,20 +286,7 @@ export default function ResearchPage() {
 
   return (
     <main>
-      <nav className="site-nav" aria-label="Main navigation">
-        <Link className="brand" href="/">
-          CakeMatch <span>AI</span>
-        </Link>
-        <div className="nav-links">
-          <Link href="/">Home</Link>
-          <Link href="/#como-funciona">How It Works</Link>
-          <Link href="/core">Core</Link>
-          <Link href="/research" aria-current="page">Research</Link>
-          <Link href="/product">Product</Link>
-          <Link href="/pricing">Pricing</Link>
-          <Link href="/docs">Documentation</Link>
-        </div>
-      </nav>
+      
 
       <section className="research-page" aria-labelledby="research-title">
         <div className="research-intro">

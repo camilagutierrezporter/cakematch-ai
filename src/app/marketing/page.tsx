@@ -233,17 +233,7 @@ const campaignCalendarCopy = [
 export default function MarketingPage() {
   return (
     <main>
-      <nav className="site-nav" aria-label="Main navigation">
-        <Link className="brand" href="/">
-          CakeMatch <span>AI</span>
-        </Link>
-        <div className="nav-links">
-          <Link href="/">Home</Link>
-          <Link href="/core">Plan an event</Link>
-          <Link href="/product">Product</Link>
-          <Link href="/marketing" aria-current="page">Marketing</Link>
-        </div>
-      </nav>
+      
 
       <MarketingAssetsProvider>
       <div className="marketing-page">

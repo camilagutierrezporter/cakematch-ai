@@ -3,21 +3,7 @@ import Link from "next/link";
 export default function Home() {
   return (
     <main>
-      <nav className="site-nav" aria-label="Main navigation">
-        <Link className="brand" href="/">
-          CakeMatch <span>AI</span>
-        </Link>
-        <div className="nav-links">
-          <Link href="#inicio">Home</Link>
-          <Link href="#como-funciona">How It Works</Link>
-          <Link href="/core">Core</Link>
-          <Link href="/product">Product</Link>
-          <Link href="/pricing">Pricing</Link>
-          <Link href="/research">Research</Link>
-          <Link href="/docs">Documentation</Link>
-          <Link href="/marketing">Marketing</Link>
-        </div>
-      </nav>
+      
 
       <section className="hero" id="inicio" aria-labelledby="home-title">
         <div className="hero-copy">

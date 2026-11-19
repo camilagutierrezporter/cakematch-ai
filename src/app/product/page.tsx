@@ -57,15 +57,7 @@ const tiers = [
 export default function ProductPage() {
   return (
     <main>
-      <nav className="site-nav" aria-label="Main navigation">
-        <Link className="brand" href="/">CakeMatch <span>AI</span></Link>
-        <div className="nav-links">
-          <Link href="/product" aria-current="page">Product</Link>
-          <Link href="/pricing">Pricing</Link>
-          <Link href="/core">Plan an event</Link>
-          <Link href="/research">Research</Link>
-        </div>
-      </nav>
+      
 
       <section className="product-page" aria-labelledby="product-title">
         <div className="product-intro">

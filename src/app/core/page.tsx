@@ -189,20 +189,7 @@ export default function CorePage() {
 
   return (
     <main>
-      <nav className="site-nav" aria-label="Main navigation">
-        <Link className="brand" href="/">
-          CakeMatch <span>AI</span>
-        </Link>
-        <div className="nav-links">
-          <Link href="/">Home</Link>
-          <Link href="/#como-funciona">How It Works</Link>
-          <Link href="/core" aria-current="page">Core</Link>
-          <Link href="/product">Product</Link>
-          <Link href="/pricing">Pricing</Link>
-          <Link href="/research">Research</Link>
-          <Link href="/docs">Documentation</Link>
-        </div>
-      </nav>
+      
 
       <section className="core-page" aria-labelledby="core-title">
         <div className="core-intro">
