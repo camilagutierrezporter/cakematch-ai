@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import { supabase, type CoreOutput } from "@/lib/supabase/client";
 

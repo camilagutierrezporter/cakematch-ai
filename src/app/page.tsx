@@ -24,6 +24,9 @@ export default function Home() {
             <Link className="text-link" href="#who-its-for">
               Who It&apos;s For <span aria-hidden="true">↗</span>
             </Link>
+            <Link className="text-link" href="/demo">
+              Explore the Week 6 demo <span aria-hidden="true">↗</span>
+            </Link>
           </div>
         </div>
         <div className="hero-art" aria-hidden="true">

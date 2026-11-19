@@ -2969,3 +2969,7 @@ h1 {
   .record-list a { flex-direction: column; }
   .dashboard-groups { gap: 14px; }
 }
+
+.docs-evidence-links { color: var(--burgundy-dark); line-height: 2; padding-left: 22px; }
+.docs-evidence-links a { text-decoration: underline; text-underline-offset: 3px; }
+.docs-evidence-links a:hover { color: var(--burgundy); }
