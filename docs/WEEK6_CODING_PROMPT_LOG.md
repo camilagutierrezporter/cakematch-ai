@@ -26,7 +26,6 @@ This log records the actual implementation prompts used for Week 6. Prompts are 
 **Human decision:** Show the original course prompt and the actual Week 6 prompt log, and label incomplete test evidence honestly.  
 **Status:** Implemented.
 
-
 ## Prompt 4 — Direct demo entry point
 
 > Add a clear home-page link to the Week 6 integrated demo so visitors can find `/demo` without relying only on the shared navigation. Keep the existing event-planner and guided-chat actions.
@@ -34,16 +33,13 @@ This log records the actual implementation prompts used for Week 6. Prompts are 
 **Files changed:** `src/app/page.tsx`.  
 **Status:** Implemented.
 
-
 ## Prompt 5 — Evidence-based testing summary
 
 > Add a testing summary to `/demo` that reports only checks actually completed and clearly marks the five external-user sessions as pending. Link to the test log and do not imply the user testing passed.
 
-**Files changed:** `src/app/demo/page.tsx`.  
 **Files changed:** `src/app/demo/page.tsx`, `docs/WEEK6_TEST_LOG.md`.  
 **Human decision:** Separate verified local checks from external user testing and live deployment.  
 **Status:** Implemented; local checks rerun and recorded.
-
 
 ## Prompt 6 — Preview build without Supabase credentials
 
@@ -51,13 +47,12 @@ This log records the actual implementation prompts used for Week 6. Prompts are 
 
 **Files changed:** `src/lib/supabase/client.ts`, `src/app/dashboard/page.tsx`, this log, the test log, and the iteration log.  
 **Verification:** `npm test` (13/13), lint, a production build with no Supabase variables, and all 10 local route checks pass.  
-**Verification:** Local no-environment build, lint, 13 tests, and 10 route checks pass. Vercel reports the retry deployment completed; the Preview page was not independently opened.  
-**Status:** Implemented; production deploy and external testing pending.
-
+**Verification:** Vercel reported that the Preview retry deployment completed; the Preview page was not independently opened. Production `/demo` and all 10 production routes were later checked and returned HTTP 200.  
+**Status:** Implemented; production route checks completed; five external-user sessions and live Supabase record access remain pending.
 
 ## Prompt 7 — Production test summary
 
 > Update the `/demo` testing summary with the verified live production route results. State that all 10 production routes returned HTTP 200, while keeping the five external-user sessions and live Supabase record access clearly marked as unverified. Do not overstate the HTTP check as an interaction or database test.
 
 **Files changed:** `src/app/demo/page.tsx`, `docs/WEEK6_TEST_LOG.md`, this log, and the iteration log.  
-**Status:** Implemented; final production redeployment and check pending.
+**Status:** Implemented; the production route check is complete. Interactive user testing and live Supabase record access remain unverified.
