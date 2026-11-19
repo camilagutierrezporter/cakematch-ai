@@ -48,11 +48,11 @@ This log records the actual implementation prompts used for Week 6. Prompts are 
 **Files changed:** `src/lib/supabase/client.ts`, `src/app/dashboard/page.tsx`, this log, the test log, and the iteration log.  
 **Verification:** `npm test` (13/13), lint, a production build with no Supabase variables, and all 10 local route checks pass.  
 **Verification:** Vercel reported that the Preview retry deployment completed; the Preview page was not independently opened. Production `/demo` and all 10 production routes were later checked and returned HTTP 200.  
-**Status:** Implemented; production route checks completed; five external-user sessions and live Supabase record access remain pending.
+**Status:** Implemented. Preview and production deployments are marked Ready in Vercel. Five anonymized feedback messages have since been received; one loading report needs follow-up and retesting.
 
 ## Prompt 7 — Production test summary
 
 > Update the `/demo` testing summary with the verified live production route results. State that all 10 production routes returned HTTP 200, while keeping the five external-user sessions and live Supabase record access clearly marked as unverified. Do not overstate the HTTP check as an interaction or database test.
 
 **Files changed:** `src/app/demo/page.tsx`, `docs/WEEK6_TEST_LOG.md`, this log, and the iteration log.  
-**Status:** Implemented; the production route check is complete. Interactive user testing and live Supabase record access remain unverified.
+**Status:** Implemented. The production `/demo` route and all ten production routes returned HTTP 200. Five anonymized feedback messages have since been recorded; live pricing-scenario access and the reported loading issue remain open.
