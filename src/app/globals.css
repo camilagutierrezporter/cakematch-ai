@@ -2973,3 +2973,7 @@ h1 {
 .docs-evidence-links { color: var(--burgundy-dark); line-height: 2; padding-left: 22px; }
 .docs-evidence-links a { text-decoration: underline; text-underline-offset: 3px; }
 .docs-evidence-links a:hover { color: var(--burgundy); }
+
+.status-proposed { background: #eee8e2; color: #665e59; }
+.test-summary-grid .week6-card { min-height: 180px; }
+.week6-test-link { margin: 22px 0 0; text-align: center; }

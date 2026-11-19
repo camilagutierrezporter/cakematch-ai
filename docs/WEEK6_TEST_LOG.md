@@ -1,6 +1,7 @@
 # Week 6 Test Log — Integrated Venture
 
-**Status:** Testing not yet completed. No external-user results are recorded yet.
+**Last updated:** November 19, 2026  
+**Status:** Local software and route checks completed. Five external-user sessions are still pending. Supabase integration and live deployment checks are not yet verified.
 
 ## External user sessions
 
@@ -18,13 +19,17 @@ The assignment requires five external users total. Use fictional event details a
 
 | Check | Expected | Actual result | Status |
 |---|---|---|---|
-| `npm test` | Existing automated tests pass | Pending | Not run |
-| `npm run lint` | No lint errors | Pending | Not run |
-| `npm run build` | Production build succeeds | Pending | Not run |
-| Route regression | All existing and new routes load | Pending | Not run |
-| Responsive and keyboard review | Pages work at desktop/mobile widths and controls are keyboard reachable | Pending | Not run |
-| Dashboard data states | Existing records, empty tables, or access failures are shown accurately | Pending | Not run |
+| `npm test` | Existing automated tests pass | 13 passed, 0 failed | PASS |
+| `npm run lint` | No lint errors | Completed with no errors | PASS |
+| `npm run build` | Production build succeeds | Build and TypeScript completed; route list includes `/dashboard`, `/demo`, and `/docs`. Used placeholder public Supabase values because local credentials were not present. | PASS (local build only) |
+| Route regression | All existing and new routes load | All 10 routes returned HTTP 200 and expected page markers in a local production-server check. | PASS (local HTTP check) |
+| Responsive and keyboard review | Pages work at desktop/mobile widths and controls are keyboard reachable | Pending manual browser review | NOT RUN |
+| Dashboard data states | Existing records, empty tables, or access failures are shown accurately | Query behavior against the real Supabase project not verified locally; dashboard has explicit loading, empty, and unavailable UI states. | NOT VERIFIED |
+| External user sessions | Five different external users test the integrated site | No sessions recorded yet | PENDING |
+| Live `/demo` deployment | Deployed route loads after publish | Initial deployment has not been verified yet | PENDING |
 
 ## Fix and retest evidence
 
-Add only issues actually observed, the correction made, and the retest result. Do not mark a planned check as passed.
+The first local route check could not reach a server started in a separate execution session. The server and route checks were then run in the same process. The repeat check passed for all 10 routes. This was a test setup issue, not an application bug.
+
+No application issue was found in the automated tests, lint, build, or local route response check. External-user feedback, browser interaction, live deployment, and real Supabase data access remain open.

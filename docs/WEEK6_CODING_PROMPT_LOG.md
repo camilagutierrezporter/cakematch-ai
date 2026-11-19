@@ -8,7 +8,7 @@ This log records the actual implementation prompts used for Week 6. Prompts are 
 
 **Files changed:** `src/app/site-navigation.tsx`, `src/app/layout.tsx`, existing page files to remove duplicate navigation.  
 **Human decision:** Keep the existing CakeMatch styling and use one shared nav.  
-**Status:** Implemented and committed as `012af45`.
+**Status:** Implemented and committed with message `feat: add shared navigation across venture pages`.
 
 ## Prompt 2 — Demo and project dashboard
 
@@ -16,7 +16,7 @@ This log records the actual implementation prompts used for Week 6. Prompts are 
 
 **Files changed:** `src/app/demo/page.tsx`, `src/app/dashboard/page.tsx`, `src/app/globals.css`.  
 **Human decision:** The agent map describes product modules and does not claim autonomous agents are running; dashboard omits private chat and marketing records.  
-**Status:** Implemented and committed as `fa246df`.
+**Status:** Implemented and committed with message `feat: add integrated demo and records dashboard`.
 
 ## Prompt 3 — Documentation and evidence page
 
@@ -33,3 +33,13 @@ This log records the actual implementation prompts used for Week 6. Prompts are 
 
 **Files changed:** `src/app/page.tsx`.  
 **Status:** Implemented.
+
+
+## Prompt 5 — Evidence-based testing summary
+
+> Add a testing summary to `/demo` that reports only checks actually completed and clearly marks the five external-user sessions as pending. Link to the test log and do not imply the user testing passed.
+
+**Files changed:** `src/app/demo/page.tsx`.  
+**Files changed:** `src/app/demo/page.tsx`, `docs/WEEK6_TEST_LOG.md`.  
+**Human decision:** Separate verified local checks from external user testing and live deployment.  
+**Status:** Implemented; local checks rerun and recorded.
