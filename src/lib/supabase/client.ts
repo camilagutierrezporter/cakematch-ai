@@ -157,14 +157,17 @@ type Database = {
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabasePublishableKey = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
 
-if (!supabaseUrl || !supabasePublishableKey) {
-  throw new Error("Missing Supabase public environment variables.");
-}
+export const isSupabaseConfigured = Boolean(supabaseUrl && supabasePublishableKey);
+
+// Keep static routes buildable in Preview environments that do not have Supabase
+// configured. The reserved .invalid domain cannot receive requests or user data.
+const clientUrl = supabaseUrl ?? "https://not-configured.invalid";
+const clientKey = supabasePublishableKey ?? "not-configured";
 
 const globalForSupabase = globalThis as typeof globalThis & {
   cakematchSupabase?: SupabaseClient<Database>;
 };
 
-export const supabase = globalForSupabase.cakematchSupabase ?? createClient<Database>(supabaseUrl, supabasePublishableKey);
+export const supabase = globalForSupabase.cakematchSupabase ?? createClient<Database>(clientUrl, clientKey);
 
 globalForSupabase.cakematchSupabase = supabase;

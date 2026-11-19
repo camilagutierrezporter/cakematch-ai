@@ -43,3 +43,12 @@ This log records the actual implementation prompts used for Week 6. Prompts are 
 **Files changed:** `src/app/demo/page.tsx`, `docs/WEEK6_TEST_LOG.md`.  
 **Human decision:** Separate verified local checks from external user testing and live deployment.  
 **Status:** Implemented; local checks rerun and recorded.
+
+
+## Prompt 6 — Preview build without Supabase credentials
+
+> The Vercel preview failed. Reproduce the production build with no public Supabase variables, then make static routes build safely when Preview has no database configuration. Do not add or expose credentials. Use a reserved `.invalid` fallback so it cannot receive requests, and make the dashboard clearly report unavailable records when the real Supabase connection is not configured. Rerun the build and record what is verified versus still unknown.
+
+**Files changed:** `src/lib/supabase/client.ts`, `src/app/dashboard/page.tsx`, this log, the test log, and the iteration log.  
+**Verification:** `npm test` (13/13), lint, a production build with no Supabase variables, and all 10 local route checks pass.  
+**Status:** Implemented; Vercel Preview retry pending.

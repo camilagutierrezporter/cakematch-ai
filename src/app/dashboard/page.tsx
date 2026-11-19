@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { supabase } from "@/lib/supabase/client";
+import { isSupabaseConfigured, supabase } from "@/lib/supabase/client";
 
 type DashboardRecord = {
   id: string | number;
@@ -40,6 +40,12 @@ export default function DashboardPage() {
     let isMounted = true;
 
     async function loadRecords() {
+      if (!isSupabaseConfigured) {
+        setGroups(emptyGroups.map((group) => ({ ...group, status: "unavailable" })));
+        setIsLoading(false);
+        return;
+      }
+
       const results = await Promise.allSettled([
         supabase.from("core_outputs").select("id, created_at, occasion, product_type, guests").order("created_at", { ascending: false }).limit(5),
         supabase.from("research_outputs").select("id, created_at, topic, target_user, market").order("created_at", { ascending: false }).limit(5),
@@ -114,7 +120,7 @@ export default function DashboardPage() {
           <article className="week6-card record-group" key={group.name}>
             <h2>{group.name}</h2>
             {isLoading || group.status === "loading" ? <p className="week6-muted">Loading saved records…</p> : null}
-            {!isLoading && group.status === "unavailable" ? <p className="week6-muted">These records are unavailable right now. The page could not confirm access to this table.</p> : null}
+            {!isLoading && group.status === "unavailable" ? <p className="week6-muted">These records are unavailable right now. Check the Supabase connection and table access.</p> : null}
             {!isLoading && group.status === "ready" && group.records.length === 0 ? <p className="week6-muted">No saved records are available to this browser yet.</p> : null}
             {group.status === "ready" && group.records.length > 0 ? (
               <ul className="record-list">
