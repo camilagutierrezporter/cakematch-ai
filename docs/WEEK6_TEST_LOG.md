@@ -1,7 +1,7 @@
 # Week 6 Test Log — Integrated Venture
 
 **Last updated:** November 19, 2026  
-**Status:** Local software and route checks completed. A Vercel Preview deployment completed successfully after the no-environment fix. Production route verification, real Supabase data access, and five external-user sessions remain open. The first Preview deployment failed; detailed logs were not available here, so its exact cause is unconfirmed.
+**Status:** Local checks and the public production route regression completed. A Vercel Preview deployment completed successfully after the no-environment fix. Real Supabase record access and five external-user sessions remain open. The first Preview deployment failed; detailed logs were not available here, so its exact cause is unconfirmed.
 
 ## External user sessions
 
@@ -31,6 +31,6 @@ The assignment requires five external users total. Use fictional event details a
 
 ## Fix and retest evidence
 
-The first local route check could not reach a server started in a separate execution session. The server and route checks were then run in the same process. The repeat check passed for all 10 routes. This was a test setup issue, not an application bug. The Vercel Preview deployment failed. A local build without public Supabase values reproduced a missing-configuration prerender error on `/chat`. A reserved `.invalid` fallback now allows the no-environment build to complete and the dashboard reports unavailable data. The original Vercel failure cause is not confirmed. The Preview retry completed successfully according to GitHub’s Vercel status; the preview page itself was not independently opened. Production deployment and direct public-route verification remain pending.
+The first local route check could not reach a server started in a separate execution session. The server and route checks were then run in the same process. The repeat check passed for all 10 routes. This was a test setup issue, not an application bug. The Vercel Preview deployment failed. A local build without public Supabase values reproduced a missing-configuration prerender error on `/chat`. A reserved `.invalid` fallback now allows the no-environment build to complete and the dashboard reports unavailable data. The original Vercel failure cause is not confirmed. The Preview retry completed successfully according to GitHub’s Vercel status; the preview page itself was not independently opened. The production `/demo` route and all 10 production page routes later returned HTTP 200 with expected content. This was an HTTP route check, not a full interactive browser or database test.
 
 No application issue was found in the automated tests, lint, build, or local route response check. External-user feedback, browser interaction, live deployment, and real Supabase data access remain open.

@@ -83,10 +83,11 @@ export default function DemoPage() {
       </section>
 
       <section className="week6-section" aria-labelledby="testing-summary-title">
-        <div className="week6-heading"><p className="eyebrow">Testing summary</p><h2 id="testing-summary-title">Checks completed so far.</h2><p className="week6-muted">Local technical checks are complete. External user testing is still pending and is not counted as passed.</p></div>
+        <div className="week6-heading"><p className="eyebrow">Testing summary</p><h2 id="testing-summary-title">Checks completed so far.</h2><p className="week6-muted">Local checks and live production route checks passed. The five external-user sessions and live Supabase record access are still unverified.</p></div>
         <div className="week6-card-grid test-summary-grid">
           <article className="week6-card"><span className="status-pill">Passed locally</span><h3>Automated tests</h3><p>13 existing software tests passed.</p></article>
-          <article className="week6-card"><span className="status-pill">Passed locally</span><h3>Code and route checks</h3><p>Lint and production build passed. All 10 existing and new routes returned HTTP 200 in the local route check.</p></article>
+          <article className="week6-card"><span className="status-pill">Passed locally</span><h3>Code and route checks</h3><p>Lint and production build passed. All 10 routes returned HTTP 200 in the local check.</p></article>
+          <article className="week6-card"><span className="status-pill">Passed live</span><h3>Production route check</h3><p>The public site returned HTTP 200 and expected page content on all 10 existing and new routes.</p></article>
           <article className="week6-card"><span className="status-pill status-proposed">Not completed</span><h3>Five external users</h3><p>The five-user test requirement is still open. No external-user feedback is claimed on this page.</p></article>
         </div>
         <p className="week6-test-link"><Link className="text-link" href="/docs">Review the test log <span aria-hidden="true">↗</span></Link></p>

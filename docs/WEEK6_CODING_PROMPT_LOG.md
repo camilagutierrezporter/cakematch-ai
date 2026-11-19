@@ -53,3 +53,11 @@ This log records the actual implementation prompts used for Week 6. Prompts are 
 **Verification:** `npm test` (13/13), lint, a production build with no Supabase variables, and all 10 local route checks pass.  
 **Verification:** Local no-environment build, lint, 13 tests, and 10 route checks pass. Vercel reports the retry deployment completed; the Preview page was not independently opened.  
 **Status:** Implemented; production deploy and external testing pending.
+
+
+## Prompt 7 — Production test summary
+
+> Update the `/demo` testing summary with the verified live production route results. State that all 10 production routes returned HTTP 200, while keeping the five external-user sessions and live Supabase record access clearly marked as unverified. Do not overstate the HTTP check as an interaction or database test.
+
+**Files changed:** `src/app/demo/page.tsx`, `docs/WEEK6_TEST_LOG.md`, this log, and the iteration log.  
+**Status:** Implemented; final production redeployment and check pending.
